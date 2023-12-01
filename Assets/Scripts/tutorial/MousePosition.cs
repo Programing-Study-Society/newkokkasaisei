@@ -8,7 +8,7 @@ public class MousePosition : MonoBehaviour
 {
     public GameObject canvasObject;
     public TutorialLimitRange tutorialLimitRange;
-
+    
     [HideInInspector] public RectTransform rangeObject;
     [HideInInspector] public float width;
     [HideInInspector] public float height;
@@ -18,9 +18,8 @@ public class MousePosition : MonoBehaviour
     [HideInInspector] public Vector2 messagePos;
     [HideInInspector] public Vector3 mousePosition;
 
-    RectTransform thisRectTransform;
+    [HideInInspector] public RectTransform thisRectTransform;
 
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +29,8 @@ public class MousePosition : MonoBehaviour
 
         messagePos = rangeObject.position;
 
-        width = globalValue.canvas.sizeDelta.x / 2;
-        width = width + (messagePos.x - width);
-        height = globalValue.canvas.sizeDelta.y / 2 + messagePos.y;
-        height = height + (messagePos.y - height);
+        width = messagePos.x;
+        height = messagePos.y;
         messageWidth = rangeObject.sizeDelta.x / 2;
         messageHeight = rangeObject.sizeDelta.y / 2;
         thisRectTransform.position = messagePos;
@@ -66,22 +63,15 @@ public class MousePosition : MonoBehaviour
 
         Vector2 messagePos = rangeObject.position;
 
-        //xÇÃëÂÇ´Ç≥ÇãÅÇﬂÇÈ
-        width = globalValue.canvas.sizeDelta.x / 2;
-        width = width + (messagePos.x - width);
+        width = messagePos.x;
         
-        //yÇÃëÂÇ´Ç≥ÇãÅÇﬂÇÈ
-        height = globalValue.canvas.sizeDelta.y / 2 + messagePos.y;
-        height = height + (messagePos.y - height);
+        height = messagePos.y;
         
         messageWidth = rangeObject.sizeDelta.x / 2;
         messageHeight = rangeObject.sizeDelta.y / 2;
         
         thisRectTransform.position = messagePos;
         thisRectTransform.sizeDelta = rangeObject.sizeDelta;
-        //tutorialLimitRange.upImage();
-        //tutorialLimitRange.downImage();
-        //tutorialLimitRange.lightImage();
-        //tutorialLimitRange.leftImage();
+        
     }
 }

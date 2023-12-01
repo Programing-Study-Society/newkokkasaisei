@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class pulsbutton : MonoBehaviour
+public class SliderPlus : MonoBehaviour
 {
     public int plusValue;
     
@@ -16,6 +16,6 @@ public class pulsbutton : MonoBehaviour
     public void click()
     {
         globalValue.complain += plusValue;
-        globalValue.money += plusValue * 1000;
+        globalValue.money += plusValue * 50000000;
     }
 }

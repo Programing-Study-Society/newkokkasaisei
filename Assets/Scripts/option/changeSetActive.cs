@@ -31,13 +31,13 @@ public class changeSetActive : MonoBehaviour
 
     public void changeTutorialExecution()
     {
-        if(globalValue.tutorialExecution == false)
+        if(globalValue.eventExecution == false)
         {
-            globalValue.tutorialExecution = true;
+            globalValue.eventExecution = true;
         }
         else
         {
-            globalValue.tutorialExecution = false;
+            globalValue.eventExecution = false;
         }
     }
 }

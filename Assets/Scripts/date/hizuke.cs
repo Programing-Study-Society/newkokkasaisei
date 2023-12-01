@@ -6,21 +6,14 @@ using System;
 
 public class hizuke : MonoBehaviour
 {
-    int a = 0;
-    int b = 0;
-    int c = 0;
     double dt = 0;
 
-    char d = '年';
-    char e = '月';
-    char f = '日';
-    string s = "経過日数: ";
     public Text textUI;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        textUI.text = "日付: " + globalValue.yearNumber.ToString() + " 年目 " + globalValue.monthNumber.ToString() + " 月 " + globalValue.dayNumber.ToString() + " 日";
     }
 
     // Update is called once per frame
@@ -28,55 +21,53 @@ public class hizuke : MonoBehaviour
     {  
         Hizuke();
     }
-
-   public void Hizuke()
-    {
-      dt += Time.deltaTime;
-      dt *= 1.25;
-      if (dt > 1)
-      {
-        dt = 0.0f;
-        c += 1;
         
-        if (b == 0 || b == 4 || b == 6 || b == 9 || b == 11)
-        {    
-          if (c == 31  )
-          {
-            b += 1;
-            c =1;
-          }
-        }
-
-        else if ( b == 1 || b == 3 || b == 5 || b == 7 || b == 8 || b == 10 || b == 12)
+   public void Hizuke()
+   {
+        dt += Time.deltaTime;
+    
+        if (dt > 0.5)
         {
-          if (c == 32 )
-          {
-            b += 1;
-            c =1;
-          }
-        }
 
-        else if(b == 2 )
-        {
-          if (c == 29)
-          {
-            b += 1;
-            c = 1;
-          }
-        }
+            dt = 0.0f;
+            globalValue.dayNumber += 1;
+            
+            if (globalValue.monthNumber == 0 || globalValue.monthNumber == 4 || globalValue.monthNumber == 6 || globalValue.monthNumber == 9 || globalValue.monthNumber == 11)
+            {    
+                if (globalValue.dayNumber == 31  )
+                {
+                    globalValue.monthNumber += 1;
+                    globalValue.dayNumber = 1;
+                }
+            }
 
-        else if (b > 12)
-        {
-          a += 1;
-          b = 1;
-        }
+            else if (globalValue.monthNumber == 1 || globalValue.monthNumber == 3 || globalValue.monthNumber == 5 || globalValue.monthNumber == 7 || globalValue.monthNumber == 8 || globalValue.monthNumber == 10 || globalValue.monthNumber == 12)
+            {
+                if (globalValue.dayNumber == 32 )
+                {
+                    globalValue.monthNumber += 1;
+                    globalValue.dayNumber = 1;
+                }
+            }
+
+            else if(globalValue.monthNumber == 2 )
+            {
+                if (globalValue.dayNumber == 29)
+                {
+                    globalValue.monthNumber += 1;
+                    globalValue.dayNumber = 1;
+                }
+            }
+
+            else if (globalValue.monthNumber > 12)
+            {
+                globalValue.yearNumber += 1;
+                globalValue.monthNumber = 1;
+            }
 
          
-        
-        string g = Convert.ToString(a);
-        string h = Convert.ToString(b);
-        string i = Convert.ToString(c);
-        textUI.text =s + g + d + h + e + i + f;
-      }
-    }
+            
+            textUI.text = "日付: " + globalValue.yearNumber.ToString() + " 年目 " + globalValue.monthNumber.ToString() + " 月 " + globalValue.dayNumber.ToString() + " 日";
+        }
+   }
 }

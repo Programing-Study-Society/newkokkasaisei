@@ -7,11 +7,22 @@ public class Restart : MonoBehaviour
 {
     public void Retry()
     {
+        //チュートリアル進捗初期化
         globalValue.lineNumber = 0;
-        globalValue.tutorialExecution = true;
+        globalValue.eventExecution = true;
+        
+        //所持金初期化
         globalValue.money = 0;
+        
+        //国民不満ゲージ初期化
         globalValue.complain = 0;
 
+        //日付初期化
+        globalValue.yearNumber = 1;
+        globalValue.monthNumber = 1;
+        globalValue.dayNumber = 1;
+
+        //シーン初期化
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

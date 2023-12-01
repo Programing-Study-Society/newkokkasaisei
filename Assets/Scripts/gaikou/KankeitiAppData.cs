@@ -94,16 +94,21 @@ public class RelationshipAppData : MonoBehaviour
         }
         else
         {
-            if (tradeSituation == "‚µ‚Ä‚¢‚È‚¢")
+            if (friendshipLevel >= 80)
             {
-                tradeSituation = "–fˆÕ’†";
+                if (tradeSituation == "‚µ‚Ä‚¢‚È‚¢")
+                {
+                    tradeSituation = "–fˆÕ’†";
+                }
+                else
+                {
+                    tradeSituation = "‚µ‚Ä‚¢‚È‚¢";
+                }
+                RelationshipApp();
+                ClickButtonRelationshipDisplay();
             }
-            else
-            {
-                tradeSituation = "‚µ‚Ä‚¢‚È‚¢";
-            }
-            RelationshipApp();
-            ClickButtonRelationshipDisplay();
+            
+            
         }
     }
 }

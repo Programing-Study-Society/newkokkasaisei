@@ -1,27 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialLimitRange : MonoBehaviour
 {
-    public MousePosition mousePosition;
+    public TutorialManager tutorialManager;
+    public List<GameObject> buttonList;
+    int buttonListPoint = 0;
+    int buttonListPoint2 = 0;
+    int buttonListMax;
 
-    public RectTransform upRectTransform;
-    public RectTransform downRectTransform;
-    public RectTransform lightRectTransform;
-    public RectTransform leftRectTransform;
-
-    float width;
-    float height;
-    
-    Vector2 thisRectTransformPos;
-    Vector2 thisRectTransformDelta;
-
+    RectTransform buttonListPos;
 
     // Start is called before the first frame update
     void Start()
     {
-
+       
+        
     }
 
     // Update is called once per frame
@@ -30,36 +26,52 @@ public class TutorialLimitRange : MonoBehaviour
 
     }
 
-    public void upImage()
+    public void buttonInteractable()
     {
-        upRectTransform.sizeDelta = globalValue.canvas.sizeDelta;
-        thisRectTransformPos = upRectTransform.position;
-        thisRectTransformDelta = upRectTransform.sizeDelta;
+        buttonListMax = buttonList.Count;
+        
+        for (buttonListPoint = 0; buttonListPoint < buttonListMax; buttonListPoint++)
+        {
+            buttonListMax = buttonList.Count;
+            Button btn = buttonList[buttonListPoint].GetComponent<Button>();
+            btn.interactable = false;
+        }
 
-        height = mousePosition.messagePos.y + (mousePosition.height / 2);
-        thisRectTransformDelta.y = (upRectTransform.sizeDelta.y / 2) - height;
-        thisRectTransformPos.y = height + (thisRectTransformDelta.y / 2);
+        buttonListPoint = 0;
     }
-    public void downImage()
-    {
-        downRectTransform.sizeDelta = globalValue.canvas.sizeDelta;
-        thisRectTransformPos = downRectTransform.position;
-        thisRectTransformDelta = upRectTransform.sizeDelta;
 
-        height = mousePosition.messagePos.y - (mousePosition.height / 2);
-        thisRectTransformDelta.y = (upRectTransform.sizeDelta.y / 2) + height;
-        thisRectTransformPos.y = height - (thisRectTransformDelta.y / 2);
-    }
-    public void lightImage()
+    public void buttonTrue()
     {
-        //lightRectTransform.sizeDelta = globalValue.canvas.sizeDelta;
-        //thisRectTransformPos = lightRectTransform.position;
+        buttonListMax = buttonList.Count;
+        for (buttonListPoint = 0; buttonListPoint < buttonListMax; buttonListPoint++)
+        {
+            Button btn = buttonList[buttonListPoint].GetComponent<Button>();
+            btn.interactable = true;
+        }
 
+        buttonListPoint = 0;
     }
-    public void leftImage()
+
+    public void buttonSelect()
     {
-        //leftRectTransform.sizeDelta = globalValue.canvas.sizeDelta;
-        //thisRectTransformPos = leftRectTransform.position;
+        buttonListMax = buttonList.Count;
+
+        if (buttonListPoint2 < buttonListMax)
+        {
+            buttonListPos = buttonList[buttonListPoint2].GetComponent<RectTransform>();
+            if (buttonListPos == tutorialManager.movingObjectList[tutorialManager.movingObjectListPoint])
+            {
+                Button btn = buttonList[buttonListPoint2].GetComponent<Button>();
+                btn.interactable = true;
+                buttonListPoint2++;
+
+            }
+        }
+        else
+        {
+            buttonListPoint2 = 0;
+        }
+        
     }
     
 }
