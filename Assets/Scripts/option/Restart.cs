@@ -25,4 +25,13 @@ public class Restart : MonoBehaviour
         //シーン初期化
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void endGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;//ゲームプレイ終了
+#else
+        Application.Quit();//ゲームプレイ終了
+#endif
+    }
 }

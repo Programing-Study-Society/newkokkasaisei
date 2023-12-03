@@ -20,18 +20,15 @@ public class camera : MonoBehaviour
         {
             return;
         }
- 
-        float sensitiveMove = 0.4f;
-        float sensitiveZoom = 5.0f;
- 
+        
         if (Input.GetMouseButton(0))
         {
-            float moveX = Input.GetAxis("Mouse X") * sensitiveMove;
-            float moveY = Input.GetAxis("Mouse Y") * sensitiveMove;
+            float moveX = Input.GetAxis("Mouse X") * globalValue.sensitiveMove;
+            float moveY = Input.GetAxis("Mouse Y") * globalValue.sensitiveMove;
             cam.transform.localPosition -= new Vector3(moveX, moveY, 0.0f);
         }
  
-        float moveZ = Input.GetAxis("Mouse ScrollWheel") * sensitiveZoom;
+        float moveZ = Input.GetAxis("Mouse ScrollWheel") * globalValue.sensitiveZoom;
         cam.transform.position += cam.transform.forward * moveZ;
     }
 }

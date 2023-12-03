@@ -12,7 +12,7 @@ public class changeSetActive : MonoBehaviour
 
     private int listMaxCount = 0;
 
-    public void OnButton()
+    public void OnSetActiveButton()
     {
         listMaxCount = setActiveObject.Count;
         for(setActiveObjectListPoint = 0; setActiveObjectListPoint < listMaxCount; setActiveObjectListPoint++)
@@ -27,17 +27,5 @@ public class changeSetActive : MonoBehaviour
             }
         }
         
-    }
-
-    public void changeTutorialExecution()
-    {
-        if(globalValue.eventExecution == false)
-        {
-            globalValue.eventExecution = true;
-        }
-        else
-        {
-            globalValue.eventExecution = false;
-        }
     }
 }
