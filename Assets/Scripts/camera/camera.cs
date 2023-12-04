@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class camera : MonoBehaviour
 {
-    private Camera cam;
+    public Camera cam;
     private Vector3 startPos;
     private Vector3 startAngle;
     // Start is called before the first frame update
     void Start()
     {
-        cam = GetComponent<Camera>();
+        cam = cam.GetComponent<Camera>();
     }
 
     // Update is called once per frame
