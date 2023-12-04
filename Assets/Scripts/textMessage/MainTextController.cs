@@ -13,7 +13,6 @@ namespace TextSpace
         int _displayedSentenceLength;
         int _sentenceLength;
         float _time;
-        float _feedTime;
         [SerializeField] GameObject MessageWindow;
         [SerializeField] GameObject mousePosition;
         [SerializeField] GameObject tutorial;
@@ -30,8 +29,6 @@ namespace TextSpace
             MousePosition = mousePosition.GetComponent<MousePosition>();
 
             _time = 0f;
-            _feedTime = 0.05f;
-
            
             DisplayText();
         }
@@ -66,9 +63,9 @@ namespace TextSpace
 
             // •¶Í‚ð‚P•¶Žš‚¸‚Â•\Ž¦‚·‚é
             _time += Time.deltaTime;
-            if (_time >= _feedTime)
+            if (_time >= globalValue.textSpeed)
             {
-                _time -= _feedTime;
+                _time -= globalValue.textSpeed;
                 if (!CanGoToTheNextLine())
                 {
                     _displayedSentenceLength++;
