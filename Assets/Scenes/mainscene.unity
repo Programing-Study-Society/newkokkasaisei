@@ -361,7 +361,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u898B\u6E21\u3059"
+  m_Text: "\u89B3\u5BDF"
 --- !u!222 &116709948
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7655,7 +7655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1961851038
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8269,10 +8269,15 @@ MonoBehaviour:
   - {fileID: 1924436144}
   - {fileID: 1656725941}
   - {fileID: 434934706}
+  - {fileID: 1656725941}
   - {fileID: 1243080875}
   - {fileID: 2029724974}
   - {fileID: 1656725941}
   - {fileID: 2029724974}
+  - {fileID: 1508787707}
+  - {fileID: 1656725941}
+  - {fileID: 1656725941}
+  - {fileID: 1508787707}
   - {fileID: 2105843741}
   - {fileID: 1656725941}
   - {fileID: 1656725941}
@@ -8336,6 +8341,7 @@ MonoBehaviour:
   buttonList:
   - {fileID: 1243080874}
   - {fileID: 2029724973}
+  - {fileID: 1508787706}
   - {fileID: 2105843740}
 --- !u!1 &2041757901
 GameObject:

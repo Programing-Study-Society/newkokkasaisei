@@ -9,6 +9,8 @@ public class butoonActive : MonoBehaviour
     int buttonListPoint = 0;
     int buttonListMax;
 
+    bool buttonNumber = false;
+
     public void buttonInteractable()
     {
         buttonListMax = buttonList.Count;
@@ -17,14 +19,22 @@ public class butoonActive : MonoBehaviour
         {
             buttonListMax = buttonList.Count;
             Button btn = buttonList[buttonListPoint].GetComponent<Button>();
-            if(btn.interactable == false)
-            {
-                btn.interactable = true;
-            }
-            else
+            if(buttonNumber == false)
             {
                 btn.interactable = false;
             }
+            else
+            {
+                btn.interactable = true;
+            }
+        }
+        if(buttonNumber == false)
+        {
+            buttonNumber = true;
+        }
+        else
+        {
+            buttonNumber = false;
         }
     }
 }
