@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TextSpace;
 
 public class TutorialManager : MonoBehaviour
 {
     public changeSetActive changeSetActive;
     public TutorialLimitRange TutorialLimitRange;
+    public MainTextController mainTextController;
     public GameObject mousePositionManager;
     public GameObject highlightObject;
-    public GameObject tutorialTextObject;
 
     //次に選択できる所
     public List<RectTransform> movingObjectList;
@@ -18,20 +19,11 @@ public class TutorialManager : MonoBehaviour
 
     [HideInInspector] public int listMaxCount;
     [HideInInspector] public int movingObjectListPoint;
-
+    
     // Start is called before the first frame update
     void Start()
     {
-        first();
-
-        if (globalValue.eventExecution == false)
-        {
-            changeSetActive.OnSetActiveButton();
-        }
-        else
-        {
-            TutorialLimitRange.buttonInteractable();
-        }
+        TutorialLimitRange.buttonInteractable();
         
         movingObjectListPoint = 0;
 
@@ -82,30 +74,10 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
-            globalValue.eventExecution = false;
-        }
-    }
-
-    public void tutorialTrue()
-    {
-        globalValue.eventExecution = true;
-    }
-
-    public void tutorialFalse()
-    {
-        globalValue.eventExecution = false;
-    }
-
-    public void first()
-    {
-        if(globalValue.first == false)
-        {
-            tutorialTextObject.SetActive(false);
-        }
-        else
-        {
-            globalValue.first = false;
             TutorialLimitRange.buttonTrue();
+            globalValue.lineNumber = 0;
+            globalValue.eventExecution = false;
+            //Debug.Log(globalValue.eventExecution);
         }
     }
 }

@@ -52,7 +52,7 @@ public class Architecture : MonoBehaviour
                 Vector3 cellCenterWorldPos = tilemap.GetCellCenterWorld(cellPosition);
                 cellCenterWorldPos += targetPrefab.transform.position; // 建物ごとの誤差を埋める(prefabの座標を取ってくる)
 
-                if (Input.GetMouseButtonDown(0))  // マウスの左ボタンがクリックされたら
+                if (Input.GetMouseButtonDown(1))  // マウスの右ボタンがクリックされたら
                 {
                     // オブジェクトを設置
                     Instantiate(targetPrefab, cellCenterWorldPos, targetPrefab.transform.rotation);
