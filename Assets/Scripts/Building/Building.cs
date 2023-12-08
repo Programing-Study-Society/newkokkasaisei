@@ -9,11 +9,15 @@ public class Building : BuildingParent
     private Architecture architecture;
     private int old = 0;
 
+    void Awake()
+    {
+        architecture = gameObject.AddComponent<Architecture>();
+    }
+
     void Start()
     {
         if(objects.Length != keyCodes.Length)
             Debug.Log("警告：objectsとkeyCodesの要素数が異なります。\n無効な値を読み取る可能性があります。");
-        architecture = gameObject.AddComponent<Architecture>();
         architecture.SetAll(tilemap, objects[0]);
     }
 
