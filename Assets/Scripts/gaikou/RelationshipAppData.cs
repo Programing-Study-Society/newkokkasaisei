@@ -21,7 +21,7 @@ public class RelationshipAppData : MonoBehaviour
     private GameObject upDataCountry;//çXêVÇ∑ÇÈçë
 
     RelationshipDisplay RelationshipDisplay;
-    Relationship Relationship;
+    RelationShip Relationship;
     Text RelationshipText;
 
     // Start is called before the first frame update
@@ -76,7 +76,7 @@ public class RelationshipAppData : MonoBehaviour
     {
         country = RelationshipDisplay.country;
         Identification();
-        Relationship = upDataCountry.GetComponent<Relationship>();
+        Relationship = upDataCountry.GetComponent<RelationShip>();
         Relationship.country = country;
         Relationship.friendshipLevel = friendshipLevel;
         Relationship.economicPower = economicPower;

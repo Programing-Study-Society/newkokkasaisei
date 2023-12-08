@@ -26,7 +26,7 @@ public class TutorialManager : MonoBehaviour
 
         if (globalValue.eventExecution == false)
         {
-            changeSetActive.OnButton();
+            changeSetActive.OnSetActiveButton();
         }
         else
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Relationship: MonoBehaviour
+public class RelationShip: MonoBehaviour
 {
     [Header("‘")] public string country;
     [Header("—FD“x")] public float friendshipLevel;
