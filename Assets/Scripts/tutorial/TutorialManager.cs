@@ -5,7 +5,7 @@ using TextSpace;
 
 public class TutorialManager : MonoBehaviour
 {
-    public changeSetActive changeSetActive;
+    public EventManager eventManager;
     public TutorialLimitRange TutorialLimitRange;
     public MainTextController mainTextController;
     public GameObject mousePositionManager;
@@ -18,14 +18,11 @@ public class TutorialManager : MonoBehaviour
     RectTransform highlightObjectRect;
 
     [HideInInspector] public int listMaxCount;
-    [HideInInspector] public int movingObjectListPoint;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         TutorialLimitRange.buttonInteractable();
-        
-        movingObjectListPoint = 0;
 
         listMaxCount = movingObjectList.Count;
 
@@ -34,7 +31,7 @@ public class TutorialManager : MonoBehaviour
 
         TutorialRangeMovement();
 
-        if (movingObjectList[movingObjectListPoint] == globalValue.canvas)
+        if (movingObjectList[globalValue.lineNumber] == globalValue.canvas)
         {
             highlightObject.SetActive(false);
         }
@@ -51,9 +48,9 @@ public class TutorialManager : MonoBehaviour
 
     public void TutorialRangeMovement()
     {
-        if (movingObjectListPoint < listMaxCount)
+        if (globalValue.lineNumber < listMaxCount)
         {
-            if (movingObjectList[movingObjectListPoint] == globalValue.canvas)
+            if (movingObjectList[globalValue.lineNumber] == globalValue.canvas)
             {
                 highlightObject.SetActive(false);
             }
@@ -63,20 +60,24 @@ public class TutorialManager : MonoBehaviour
             }
 
             //チュートリアル制限範囲移動
-            MousePosition.rangeObject = movingObjectList[movingObjectListPoint];
+            MousePosition.rangeObject = movingObjectList[globalValue.lineNumber];
             MousePosition.UpDataRangeObject();
 
             //ハイライト移動
-            highlightObjectRect.position = movingObjectList[movingObjectListPoint].position;
-            highlightObjectRect.sizeDelta = movingObjectList[movingObjectListPoint].sizeDelta;
-            
+            highlightObjectRect.position = movingObjectList[globalValue.lineNumber].position;
+            highlightObjectRect.sizeDelta = movingObjectList[globalValue.lineNumber].sizeDelta;
+
+            Vector2 highlightPosition = highlightObjectRect.position;
+            highlightPosition.y += highlightObjectRect.sizeDelta.y;
+            highlightObjectRect.position = highlightPosition;
+
             TutorialLimitRange.buttonSelect();
         }
         else
         {
             TutorialLimitRange.buttonTrue();
             globalValue.lineNumber = 0;
-            globalValue.eventExecution = false;
+            eventManager.EndEvent();
             //Debug.Log(globalValue.eventExecution);
         }
     }

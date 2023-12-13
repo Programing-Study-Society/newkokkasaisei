@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class RelationShip: MonoBehaviour
+public class CountryRelationShip: MonoBehaviour
 {
     [Header("国")] public string country;
     [Header("友好度")] public float friendshipLevel;
@@ -12,15 +12,7 @@ public class RelationShip: MonoBehaviour
     [Header("軍事力")] public float militaryPower;
     [Header("貿易品")] public string tradeGoods;
     [Header("貿易状況")] public string tradeSituation;
-    [Header("関係値アップロード場所")] public GameObject relationshipApp;
-
-    RelationshipAppData relationshipAppData;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        relationshipAppData = relationshipApp.GetComponent<RelationshipAppData>();
-    }
+    [Header("関係値アップロード場所")] public AppDataRelationship relationshipAppData;
 
     //関係値のアップデートを行う関数
     public void ClickButtonRelationshipApp()

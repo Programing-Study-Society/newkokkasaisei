@@ -43,7 +43,6 @@ namespace TextSpace
                 {
                     GoToTheNextLine();
                     DisplayText();
-                    TutorialManager.movingObjectListPoint++;
                     TutorialManager.TutorialRangeMovement();
                 }
                 else
@@ -69,7 +68,7 @@ namespace TextSpace
                 }
             }
 
-            if(TutorialManager.movingObjectListPoint < TutorialManager.listMaxCount)
+            if(globalValue.lineNumber < TutorialManager.listMaxCount)
             {
                 // 範囲指定された所をクリックされたとき、次の行へ移動
                 if (MousePosition.messageMousePosition)

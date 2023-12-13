@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RelationshipDisplay : MonoBehaviour
+public class DisplayRelationship : MonoBehaviour
 {
     [Header("çë")] public string country;
     [Header("óFçDìx")] public float friendshipLevel;

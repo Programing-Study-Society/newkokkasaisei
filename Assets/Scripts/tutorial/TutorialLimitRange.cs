@@ -59,7 +59,7 @@ public class TutorialLimitRange : MonoBehaviour
         if (buttonListPoint2 < buttonListMax)
         {
             buttonListPos = buttonList[buttonListPoint2].GetComponent<RectTransform>();
-            if (buttonListPos == tutorialManager.movingObjectList[tutorialManager.movingObjectListPoint])
+            if (buttonListPos == tutorialManager.movingObjectList[globalValue.lineNumber])
             {
                 Button btn = buttonList[buttonListPoint2].GetComponent<Button>();
                 btn.interactable = true;
