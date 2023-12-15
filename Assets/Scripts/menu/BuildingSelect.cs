@@ -17,7 +17,7 @@ public class BuildingSelect : BuildingParent
     void Start()
     {
         architecture = gameObject.AddComponent<Architecture>();
-        architecture.SetAll(tilemap, objects[0]);
+        architecture.SetAll(tilemap);
     }
 
     void Update()
