@@ -7,9 +7,8 @@ using UnityEngine.UI;
 public class MousePosition : MonoBehaviour
 {
     public GameObject canvasObject;
-    public TutorialLimitRange tutorialLimitRange;
     
-    [HideInInspector] public RectTransform rangeObject;
+    public RectTransform rangeObject;
     [HideInInspector] public float width;
     [HideInInspector] public float height;
     [HideInInspector] public float messageWidth;

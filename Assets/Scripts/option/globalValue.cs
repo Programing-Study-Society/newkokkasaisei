@@ -6,9 +6,10 @@ public static class globalValue
 {
     //チュートリアルデータ
     public  static int lineNumber = 0;
-    public static int eventNumber = 0;//追加　変数：イベントの番号
+    public static int rootEventNumber = 0;//追加　変数：イベントの進捗
+    public static int randomEventNumber = 0;//追加　変数：進行しているランダムイベントの番号
     public static bool eventExecution = false;
-    public static bool first = true;
+    //削除　public static bool first = true;
     public static RectTransform canvas;
 
     //人口

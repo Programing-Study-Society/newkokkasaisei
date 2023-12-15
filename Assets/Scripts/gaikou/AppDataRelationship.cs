@@ -101,9 +101,13 @@ public class AppDataRelationship : MonoBehaviour
                 {
                     tradeSituation = "貿易中";
                 }
-                else
+                else if(tradeSituation == "貿易中")
                 {
                     tradeSituation = "していない";
+                }
+                else
+                {
+
                 }
 
                 //更新した値をオブジェクトに保存
@@ -135,6 +139,5 @@ public class AppDataRelationship : MonoBehaviour
         globalValue.tradeSize += magnification;
         //Debug.Log(globalValue.tradeSize);
     }
-
 
 }

@@ -13,7 +13,10 @@ public class hizuke : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        textUI.text = "日付: " + globalValue.yearNumber.ToString() + " 年目 " + globalValue.monthNumber.ToString() + " 月 " + globalValue.dayNumber.ToString() + " 日";
+        textUI.text = "日付: " + 
+            globalValue.yearNumber.ToString() + " 年目 " + 
+            globalValue.monthNumber.ToString() + " 月 " + 
+            globalValue.dayNumber.ToString() + " 日";
     }
 
     // Update is called once per frame
@@ -67,7 +70,29 @@ public class hizuke : MonoBehaviour
 
          
             
-            textUI.text = "日付: " + globalValue.yearNumber.ToString() + " 年目 " + globalValue.monthNumber.ToString() + " 月 " + globalValue.dayNumber.ToString() + " 日";
+            textUI.text = "日付: " + 
+                globalValue.yearNumber.ToString() + " 年目 " + 
+                globalValue.monthNumber.ToString() + " 月 " + 
+                globalValue.dayNumber.ToString() + " 日";
         }
    }
+   
+    //翌月にスキップできる（5日になったら）
+    public void AddMonth()
+    {
+        globalValue.monthNumber += 1;
+        globalValue.dayNumber = 1;
+
+        if (globalValue.monthNumber > 12)
+        {
+            globalValue.monthNumber = 1;
+            globalValue.yearNumber += 1;
+        }
+
+        textUI.text = "日付: " +
+            globalValue.yearNumber.ToString() + " 年目 " +
+            globalValue.monthNumber.ToString() + " 月 " +
+            globalValue.dayNumber.ToString() + " 日";
+
+    }
 }

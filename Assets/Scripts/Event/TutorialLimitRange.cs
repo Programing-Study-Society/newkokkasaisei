@@ -5,26 +5,12 @@ using UnityEngine.UI;
 
 public class TutorialLimitRange : MonoBehaviour
 {
-    public TutorialManager tutorialManager;
     public List<GameObject> buttonList;
     int buttonListPoint = 0;
     int buttonListPoint2 = 0;
     int buttonListMax;
 
     RectTransform buttonListPos;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void buttonInteractable()
     {
@@ -52,14 +38,14 @@ public class TutorialLimitRange : MonoBehaviour
         buttonListPoint = 0;
     }
 
-    public void buttonSelect()
+    public void buttonSelect(RectTransform selectTransform)
     {
         buttonListMax = buttonList.Count;
 
         if (buttonListPoint2 < buttonListMax)
         {
             buttonListPos = buttonList[buttonListPoint2].GetComponent<RectTransform>();
-            if (buttonListPos == tutorialManager.movingObjectList[globalValue.lineNumber])
+            if (buttonListPos == selectTransform)
             {
                 Button btn = buttonList[buttonListPoint2].GetComponent<Button>();
                 btn.interactable = true;

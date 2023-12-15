@@ -24,4 +24,13 @@ public class CountryRelationShip: MonoBehaviour
         relationshipAppData.tradeGoods = tradeGoods;
         relationshipAppData.tradeSituation = tradeSituation;
     }
+
+    //—FD“x‚ª0%‚É‚È‚Á‚½‚ç–fˆÕó‹µ‚ğí‘ˆó‘Ô‚ÉˆÚs
+    public void warSituation()
+    {
+        if(friendshipLevel>= 0)
+        {
+            tradeSituation = "í‘ˆ’†";
+        }
+    }
 }

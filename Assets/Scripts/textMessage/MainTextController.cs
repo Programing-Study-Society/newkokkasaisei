@@ -15,23 +15,23 @@ namespace TextSpace
         float _time;
         [SerializeField] GameObject MessageWindow;
         [SerializeField] GameObject mousePosition;
-        [SerializeField] GameObject tutorial;
+
         MousePosition MousePosition;
-        TutorialManager TutorialManager;
+
+        bool first = true;
 
         // Start is called before the first frame update
         void Start()
         {
-            TutorialManager = tutorial.GetComponent<TutorialManager>();
             MousePosition = mousePosition.GetComponent<MousePosition>();
 
             _time = 0f;
-           
-            DisplayText();
+            
         }
 
         public void OnClickNextText()
         {
+            
             if (globalValue.lineNumber == GameManager.Instance.userScriptManager.bunmatu)
             {
                 MessageWindow.SetActive(true);
@@ -43,7 +43,6 @@ namespace TextSpace
                 {
                     GoToTheNextLine();
                     DisplayText();
-                    TutorialManager.TutorialRangeMovement();
                 }
                 else
                 {
@@ -55,6 +54,11 @@ namespace TextSpace
         // Update is called once per frame
         void Update()
         {
+            if (first == true || globalValue.lineNumber == 0)
+            {
+                DisplayText();
+                first = false;
+            }
 
             // 文章を１文字ずつ表示する
             _time += Time.deltaTime;
@@ -68,21 +72,14 @@ namespace TextSpace
                 }
             }
 
-            if(globalValue.lineNumber < TutorialManager.listMaxCount)
+            // 範囲指定された所をクリックされたとき、次の行へ移動
+            if (MousePosition.messageMousePosition)
             {
-                // 範囲指定された所をクリックされたとき、次の行へ移動
-                if (MousePosition.messageMousePosition)
+                if (Input.GetMouseButtonUp(0))
                 {
-                    if (Input.GetMouseButtonUp(0))
-                    {
-                        OnClickNextText();
+                    OnClickNextText();
 
-                    }
                 }
-            }
-            else
-            {
-                textMassage.SetActive(false);
             }
             
         }
