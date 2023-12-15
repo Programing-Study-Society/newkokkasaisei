@@ -44,4 +44,8 @@ public static class globalValue
     //ƒJƒƒ‰‘¬“x
     public static float sensitiveMove = 0.4f;
     public static float sensitiveZoom = 5.0f;
+
+    //Œ¤‹†‚Å‰ğ•ú‚³‚ê‚éŒš•¨ 
+    public static int[] builingdcos = new int[20];
+    buildcos
 }

@@ -18,6 +18,9 @@ namespace TextSpace
         [SerializeField] GameObject tutorial;
         MousePosition MousePosition;
         TutorialManager TutorialManager;
+        int objectNumber = 0;
+
+        
 
         // Start is called before the first frame update
         void Start()
@@ -43,6 +46,7 @@ namespace TextSpace
                 {
                     GoToTheNextLine();
                     DisplayText();
+                    objectNumber++;
                     TutorialManager.movingObjectListPoint++;
                     TutorialManager.TutorialRangeMovement();
                 }

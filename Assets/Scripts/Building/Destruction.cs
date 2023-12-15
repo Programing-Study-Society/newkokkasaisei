@@ -20,7 +20,7 @@ public class Destruction : BuildingParent
         // マウス位置をRayに変換    
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
 
-        if (Input.GetMouseButtonDown(1))  // マウスの左ボタンがクリックされたら
+        if (Input.GetMouseButtonDown(0))  // マウスの左ボタンがクリックされたら
         {
             // Rayがタイルマップ上にヒットしたら
             if (Physics.Raycast(ray, out RaycastHit hit, maxDistance, layerMask))

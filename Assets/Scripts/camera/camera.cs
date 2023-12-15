@@ -27,13 +27,7 @@ public class camera : MonoBehaviour
             float moveY = Input.GetAxis("Mouse Y") * globalValue.sensitiveMove;
             cam.transform.localPosition -= new Vector3(moveX, moveY, 0.0f);
         }
-        else if (Input.GetMouseButton(1))
-        {
-            float moveX = Input.GetAxis("Mouse X") * globalValue.sensitiveMove;
-            float moveY = Input.GetAxis("Mouse Y") * globalValue.sensitiveMove;
-            cam.transform.eulerAngles -= new Vector3(moveY,moveX, 0.0f);
-        }
-        
+ 
         float moveZ = Input.GetAxis("Mouse ScrollWheel") * globalValue.sensitiveZoom;
         cam.transform.position += cam.transform.forward * moveZ;
     }
