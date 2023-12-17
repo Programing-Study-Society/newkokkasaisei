@@ -24,7 +24,7 @@ public class EventManager : MonoBehaviour
     void Update()
     {
         //最初の説明部分
-        TutorialFrag();
+        //TutorialFrag();
 
         //ランダムイベント部分
         if (oldMonth != globalValue.monthNumber)
