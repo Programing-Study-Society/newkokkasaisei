@@ -9,7 +9,7 @@ public class Destruction : BuildingParent
     
     void Start()
     {
-        layerMask = 1 << LayerMask.NameToLayer("Architecture");
+        layerMask = 1 << LayerMask.NameToLayer("Mesh");
     }
 
     void Update()

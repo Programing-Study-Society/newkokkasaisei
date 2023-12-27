@@ -12678,6 +12678,7 @@ MonoBehaviour:
   buildingSelect: {fileID: 1688208560}
   buildingObjectSelect: {fileID: 2091643753}
   addObjects:
+<<<<<<< HEAD
   - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
   - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
   - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
@@ -12786,6 +12787,11 @@ Transform:
   m_Father: {fileID: 4417897}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+  - {fileID: 6121684059413823631, guid: 44da058cc112edd4797c1f5e9a61dc87, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+>>>>>>> 9cfcd719619abebd96ed01dc71ae9ef71d8beb45
 --- !u!1 &1702515171
 GameObject:
   m_ObjectHideFlags: 0
