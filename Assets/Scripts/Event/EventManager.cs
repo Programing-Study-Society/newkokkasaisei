@@ -259,7 +259,7 @@ public class EventManager : MonoBehaviour
             if (globalValue.tradeSituation[i] == "í‘ˆ’†")
             {
                 globalValue.tradeSituation[i] = "‚µ‚Ä‚¢‚È‚¢";
-                globalValue.friendshipLevel[i] = 1;
+                globalValue.friendshipLevel[i] = 10;
                 globalValue.rootEventNumber = 2;
                 globalValue.randomValue = i;
                 warEventManager = rootEventObject[2].GetComponent<WarEventManager>();

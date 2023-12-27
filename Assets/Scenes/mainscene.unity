@@ -12753,9 +12753,19 @@ MonoBehaviour:
   buildingSelect: {fileID: 1688208560}
   buildingObjectSelect: {fileID: 2091643753}
   addObjects:
-  - {fileID: 2270750436413368789, guid: 48ec14f4f5368604291a19e7979667c8, type: 3}
-  - {fileID: 2270750436413368789, guid: 48ec14f4f5368604291a19e7979667c8, type: 3}
-  - {fileID: 2270750436413368789, guid: 48ec14f4f5368604291a19e7979667c8, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
 --- !u!1 &1702515171
 GameObject:
   m_ObjectHideFlags: 0

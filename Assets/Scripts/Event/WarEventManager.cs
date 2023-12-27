@@ -80,6 +80,7 @@ public class WarEventManager : MonoBehaviour
     {
         eventManager.EndEvent(true, globalValue.rootEventNumber);
         mainTextController.first = true;
+        first = true;
         //Debug.Log(globalValue.eventExecution);
     }
 
