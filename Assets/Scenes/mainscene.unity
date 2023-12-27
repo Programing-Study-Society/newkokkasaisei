@@ -7655,8 +7655,8 @@ MonoBehaviour:
   tilemap: {fileID: 1878794589}
   buildingObjectListPoint: 0
   objects:
-  - {fileID: 8638473641493383665, guid: 44da058cc112edd4797c1f5e9a61dc87, type: 3}
-  - {fileID: 2270750436413368789, guid: 48ec14f4f5368604291a19e7979667c8, type: 3}
+  - {fileID: 6121684059413823631, guid: 44da058cc112edd4797c1f5e9a61dc87, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -7691,9 +7691,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingSelect: {fileID: 1688208560}
   addObjects:
-  - {fileID: 2270750436413368789, guid: 48ec14f4f5368604291a19e7979667c8, type: 3}
-  - {fileID: 2270750436413368789, guid: 48ec14f4f5368604291a19e7979667c8, type: 3}
-  - {fileID: 2270750436413368789, guid: 48ec14f4f5368604291a19e7979667c8, type: 3}
+  - {fileID: 6121684059413823631, guid: 44da058cc112edd4797c1f5e9a61dc87, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
 --- !u!1 &1702515171
 GameObject:
   m_ObjectHideFlags: 0
