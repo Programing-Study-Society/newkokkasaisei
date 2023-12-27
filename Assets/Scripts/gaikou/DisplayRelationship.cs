@@ -69,8 +69,8 @@ public class DisplayRelationship : MonoBehaviour
         RelationshipText.text = "関係値" + "\n" +
             "国：" + country + "\n" +
             "友好度：" + friendshipLevel + "%" + "\n" +
-            "経済力：" + economicPower + "位" + "\n" +
-            "軍事力：" + militaryPower + "位" + "\n" +
+            "経済力：" + economicPower + "\n" +
+            "軍事力：" + militaryPower + "\n" +
             "貿易品：" + tradeGoods + "\n" +
             "貿易状況：" + tradeSituation;
     }

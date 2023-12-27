@@ -23,7 +23,7 @@ public class AddMoney : MonoBehaviour
     {
         if (globalValue.monthNumber != oldMonth)
         {
-            globalValue.money += (ulong)(addMoney * globalValue.tradeSize);
+            globalValue.money += (int)(addMoney * globalValue.tradeSize);
             oldMonth = globalValue.monthNumber;
         }
     }

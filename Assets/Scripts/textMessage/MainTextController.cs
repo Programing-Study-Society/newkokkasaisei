@@ -17,8 +17,9 @@ namespace TextSpace
         [SerializeField] GameObject mousePosition;
 
         MousePosition MousePosition;
-
-        bool first = true;
+        [SerializeField] UserScriptManager userScriptManager;
+        
+        public bool first = true;
 
         // Start is called before the first frame update
         void Start()
@@ -54,10 +55,14 @@ namespace TextSpace
         // Update is called once per frame
         void Update()
         {
-            if (first == true || globalValue.lineNumber == 0)
+            if (first == true)
+            {
+                userScriptManager.ReadText();
+                first = false;
+            }
+            if(globalValue.lineNumber == 0)
             {
                 DisplayText();
-                first = false;
             }
 
             // ï∂èÕÇÇPï∂éöÇ∏Ç¬ï\é¶Ç∑ÇÈ

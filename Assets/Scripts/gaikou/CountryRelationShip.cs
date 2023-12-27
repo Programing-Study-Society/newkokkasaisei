@@ -6,31 +6,32 @@ using UnityEngine.UI;
 
 public class CountryRelationShip: MonoBehaviour
 {
-    [Header("国")] public string country;
-    [Header("友好度")] public float friendshipLevel;
-    [Header("経済力")] public float economicPower;
-    [Header("軍事力")] public float militaryPower;
-    [Header("貿易品")] public string tradeGoods;
-    [Header("貿易状況")] public string tradeSituation;
     [Header("関係値アップロード場所")] public AppDataRelationship relationshipAppData;
+    [Header("関係値保存番号")] public int SaveListNumber;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        warSituation();
+    }
 
     //関係値のアップデートを行う関数
     public void ClickButtonRelationshipApp()
     {
-        relationshipAppData.country = country;
-        relationshipAppData.friendshipLevel = friendshipLevel;
-        relationshipAppData.economicPower = economicPower;
-        relationshipAppData.militaryPower = militaryPower;
-        relationshipAppData.tradeGoods = tradeGoods;
-        relationshipAppData.tradeSituation = tradeSituation;
+        relationshipAppData.country = globalValue.country[SaveListNumber];
+        relationshipAppData.friendshipLevel = globalValue.friendshipLevel[SaveListNumber];
+        relationshipAppData.economicPower = globalValue.economicPower[SaveListNumber];
+        relationshipAppData.militaryPower = globalValue.militaryPower[SaveListNumber];
+        relationshipAppData.tradeGoods = globalValue.tradeGoods[SaveListNumber];
+        relationshipAppData.tradeSituation = globalValue.tradeSituation[SaveListNumber];
     }
 
     //友好度が0%になったら貿易状況を戦争状態に移行
     public void warSituation()
     {
-        if(friendshipLevel>= 0)
+        if(globalValue.friendshipLevel[SaveListNumber] <= 0)
         {
-            tradeSituation = "戦争中";
+            globalValue.tradeSituation[SaveListNumber] = "戦争中";
         }
     }
 }

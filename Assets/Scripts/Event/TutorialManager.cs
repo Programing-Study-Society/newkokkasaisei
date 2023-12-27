@@ -8,6 +8,7 @@ public class TutorialManager : MonoBehaviour
     public EventManager eventManager;
     public TutorialLimitRange TutorialLimitRange;
     public MainTextController mainTextController;
+    public UserScriptManager userScriptManager;
     public GameObject mousePositionManager;
     public GameObject highlightObject;
 
@@ -39,6 +40,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (first)
         {
+            userScriptManager.ReadText();
             TutorialRangeMovement();
             first = false;
         }
@@ -62,8 +64,7 @@ public class TutorialManager : MonoBehaviour
         if (globalValue.lineNumber < listMaxCount)
         {
             //チュートリアル制限範囲移動
-            MousePosition.rangeObject = movingObjectList[globalValue.lineNumber];
-            MousePosition.UpDataRangeObject();
+            MousePosition.UpDataRangeObject(movingObjectList[globalValue.lineNumber]);
 
             //ハイライト移動
             highlightObjectRect.position = movingObjectList[globalValue.lineNumber].position;

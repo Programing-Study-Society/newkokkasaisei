@@ -17,7 +17,6 @@ public class butoonActive : MonoBehaviour
 
         for (buttonListPoint = 0; buttonListPoint < buttonListMax; buttonListPoint++)
         {
-            buttonListMax = buttonList.Count;
             Button btn = buttonList[buttonListPoint].GetComponent<Button>();
             if(buttonNumber == false)
             {
@@ -36,5 +35,24 @@ public class butoonActive : MonoBehaviour
         {
             buttonNumber = false;
         }
+    }
+
+    public void ButtonSetActiveFalse()
+    {
+        buttonListMax = buttonList.Count;
+        for (buttonListPoint = 0; buttonListPoint < buttonListMax; buttonListPoint++)
+        {
+            buttonList[buttonListPoint].SetActive(false);
+        }
+        
+    }
+    public void ButtonSetActiveTrue()
+    {
+        buttonListMax = buttonList.Count;
+        for (buttonListPoint = 0; buttonListPoint < buttonListMax; buttonListPoint++)
+        {
+            buttonList[buttonListPoint].SetActive(true);
+        }
+
     }
 }

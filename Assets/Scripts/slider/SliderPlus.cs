@@ -16,6 +16,6 @@ public class SliderPlus : MonoBehaviour
     public void click()
     {
         globalValue.complain += plusValue;
-        globalValue.money += (ulong)(plusValue * 50000000);
+        globalValue.money += (plusValue * 50000000);
     }
 }

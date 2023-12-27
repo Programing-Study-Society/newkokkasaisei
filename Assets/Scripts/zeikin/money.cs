@@ -37,7 +37,7 @@ public class money : MonoBehaviour
         }
         else
         {
-            ulong money = globalValue.money / (Giga / 10);
+            int money = globalValue.money / (Giga / 10);
             text.text = "Åè" + globalValue.gigaMoney.ToString() + "." + money.ToString() + "M";
         }
     }

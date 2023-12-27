@@ -5,18 +5,16 @@ using UnityEngine.UI;
 
 public class AppDataRelationship : MonoBehaviour
 {
-    public WorldRelationShip worldRelationShip;//全ての国の国力と関係値のデータベース
-
     [Header("関係値出力場所")] public DisplayRelationship relationshipDisplay;
 
     [Header("国")] public string country = "none";
-    [Header("友好度")] public float friendshipLevel;
-    [Header("経済力")] public float economicPower;
-    [Header("軍事力")] public float militaryPower;
+    [Header("友好度")] public int friendshipLevel;
+    [Header("経済力")] public int economicPower;
+    [Header("軍事力")] public int militaryPower;
     [Header("貿易品")] public string tradeGoods;
     [Header("貿易状況")] public string tradeSituation;
 
-    private CountryRelationShip upDataCountry;//更新する国
+    private int upDataCountryNumber;//更新する国
     private int tradeSituationConditions = 50;//貿易条件（友好度）の値
 
     // Start is called before the first frame update
@@ -46,23 +44,23 @@ public class AppDataRelationship : MonoBehaviour
     {
         if (country == "アメリカ")
         {
-            upDataCountry = worldRelationShip.america;
+            upDataCountryNumber = 0;
         }
         else if (country == "日本")
         {
-            upDataCountry = worldRelationShip.japan;
+            upDataCountryNumber = 1;
         }
         else if (country == "インド")
         {
-            upDataCountry = worldRelationShip.india;
+            upDataCountryNumber = 2;
         }
         else if (country == "ドイツ")
         {
-            upDataCountry = worldRelationShip.germany;
+            upDataCountryNumber = 3;
         }
         else if (country == "コンゴ")
         {
-            upDataCountry = worldRelationShip.kongo;
+            upDataCountryNumber = 4;
         }
         else
         {
@@ -78,12 +76,12 @@ public class AppDataRelationship : MonoBehaviour
         Identification();
 
         //値の更新
-        upDataCountry.country = country;
-        upDataCountry.friendshipLevel = friendshipLevel;
-        upDataCountry.economicPower = economicPower;
-        upDataCountry.militaryPower = militaryPower;
-        upDataCountry.tradeGoods = tradeGoods;
-        upDataCountry.tradeSituation = tradeSituation;
+        globalValue.country[upDataCountryNumber] = country;
+        globalValue.friendshipLevel[upDataCountryNumber] = friendshipLevel;
+        globalValue.economicPower[upDataCountryNumber] = economicPower;
+        globalValue.militaryPower[upDataCountryNumber] = militaryPower;
+        globalValue.tradeGoods[upDataCountryNumber] = tradeGoods;
+        globalValue.tradeSituation[upDataCountryNumber] = tradeSituation;
     }
 
     //貿易状況を変える関数
@@ -126,11 +124,11 @@ public class AppDataRelationship : MonoBehaviour
     {
         double magnification = 0;
         globalValue.tradeSize = 0;
-        for (int i = 0; i < worldRelationShip.worldCountry.Count; i++)
+        for (int i = 0; i < globalValue.tradeSituation.Count; i++)
         {
-            if (worldRelationShip.worldCountry[i].tradeSituation == "貿易中")
+            if (globalValue.tradeSituation[i] == "貿易中")
             {
-                magnification += worldRelationShip.worldCountry[i].friendshipLevel - 50;
+                magnification += globalValue.friendshipLevel[i] - 50;
                 globalValue.tradeSize++;
             }
         }

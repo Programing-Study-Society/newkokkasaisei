@@ -56,7 +56,8 @@ public class MousePosition : MonoBehaviour
 
     }
 
-    public void UpDataRangeObject() {
+    public void UpDataRangeObject(RectTransform range) {
+        rangeObject = range;
         globalValue.canvas = canvasObject.GetComponent<RectTransform>();
         thisRectTransform = this.GetComponent<RectTransform>();
 

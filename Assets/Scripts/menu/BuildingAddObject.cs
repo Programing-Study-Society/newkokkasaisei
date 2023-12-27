@@ -5,7 +5,9 @@ using UnityEngine;
 public class BuildingAddObject : MonoBehaviour
 {
     public BuildingSelect buildingSelect;
+    public BuildingObjectSelect buildingObjectSelect;
     public GameObject[] addObjects;
+
     int addObjectsNumber = 0;
 
     //Å‰‚©‚çŒš’z‚Å‚«‚é”
@@ -27,5 +29,6 @@ public class BuildingAddObject : MonoBehaviour
     {
         buildingSelect.objects[addObjectsNumber + firstBuilding] = addObjects[addObjectsNumber];
         addObjectsNumber++;
+        buildingObjectSelect.CreateModeSetActive();
     }
 }
