@@ -21,7 +21,7 @@ public class RandomEventManager : MonoBehaviour
     void Update()
     {
         //Debug.Log(globalValue.lineNumber);
-        if (first)
+        if (first == true)
         {
             //どこを押しても次のテキストに行けるようにする
             Debug.Log(globalValue.randomEventNumber);

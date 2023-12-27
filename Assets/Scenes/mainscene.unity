@@ -154,7 +154,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1861664487}
-  - {fileID: 1700838118}
+  - {fileID: 680387491}
   - {fileID: 754011789}
   m_Father: {fileID: 1389454371}
   m_RootOrder: 0
@@ -4115,7 +4115,7 @@ Transform:
   - {fileID: 1389454371}
   - {fileID: 1812318223}
   - {fileID: 1737479149}
-  - {fileID: 1694101740}
+  - {fileID: 1165368944}
   - {fileID: 879070255}
   - {fileID: 1209652556}
   m_Father: {fileID: 2015991824}
@@ -5034,18 +5034,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 599085718}
-        m_TargetAssemblyTypeName: butoonActive, Assembly-CSharp
-        m_MethodName: ButtonSetActiveFalse
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &599085716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5113,8 +5101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventManager: {fileID: 2015991825}
   mainTextController: {fileID: 643879619}
-  randomEventManager: {fileID: 879070257}
-  countryHelpEvent: {fileID: 0}
+  buttonActive: {fileID: 599085718}
 --- !u!1 &599878259
 GameObject:
   m_ObjectHideFlags: 0
@@ -5790,7 +5777,7 @@ MonoBehaviour:
   textMassage: {fileID: 4417896}
   MessageWindow: {fileID: 1861664484}
   mousePosition: {fileID: 199668789}
-  userScriptManager: {fileID: 1700838117}
+  userScriptManager: {fileID: 680387492}
   first: 1
 --- !u!224 &643879620
 RectTransform:
@@ -6140,6 +6127,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671702534}
   m_CullTransparentMesh: 1
+--- !u!1 &680387490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 680387491}
+  - component: {fileID: 680387492}
+  m_Layer: 0
+  m_Name: UserScriptManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &680387491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680387490}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -960, y: -340, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4417897}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &680387492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680387490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41488efc311455940b22ef34648bc1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bunmatu: 0
+  _textFile: {fileID: 4900000, guid: bfb18dfc165b48d4d85d9fa707299858, type: 3}
+  _sentences: []
 --- !u!1 &685258377
 GameObject:
   m_ObjectHideFlags: 0
@@ -6807,7 +6841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ad3f4060dfb09458f5324387856c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userScriptManager: {fileID: 1700838117}
+  userScriptManager: {fileID: 680387492}
   mainTextController: {fileID: 643879619}
 --- !u!1 &761881965
 GameObject:
@@ -7489,7 +7523,6 @@ Transform:
   m_Children:
   - {fileID: 599085714}
   - {fileID: 1128240896}
-  - {fileID: 1121034712}
   m_Father: {fileID: 471810792}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7500,15 +7533,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879070254}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09ad75a21a16b734baadb9a964518435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventManager: {fileID: 2015991825}
   MousePosition: {fileID: 199668790}
-  userScriptManager: {fileID: 1700838117}
+  userScriptManager: {fileID: 680387492}
   mainTextController: {fileID: 643879619}
+  notClickObject: {fileID: 1121034712}
   readText:
   - {fileID: 4900000, guid: a0fe53352b8cb274d95bfe5aae88fb41, type: 3}
   - {fileID: 4900000, guid: 7dadd8020ed868948a2806b7a1fad914, type: 3}
@@ -8656,11 +8690,11 @@ RectTransform:
   m_GameObject: {fileID: 1121034711}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 879070255}
-  m_RootOrder: 2
+  m_Father: {fileID: 1389454371}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8773,18 +8807,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1128240900}
-        m_TargetAssemblyTypeName: butoonActive, Assembly-CSharp
-        m_MethodName: ButtonSetActiveFalse
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1128240898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8852,8 +8874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventManager: {fileID: 2015991825}
   mainTextController: {fileID: 643879619}
-  randomEventManager: {fileID: 879070257}
-  countryHelpEvent: {fileID: 0}
+  buttonActive: {fileID: 1128240900}
 --- !u!1 &1131873365
 GameObject:
   m_ObjectHideFlags: 0
@@ -9259,6 +9280,58 @@ MonoBehaviour:
   - {fileID: 526806074}
   - {fileID: 1961851037}
   - {fileID: 1243080874}
+--- !u!1 &1165368943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1165368944}
+  - component: {fileID: 1165368945}
+  m_Layer: 0
+  m_Name: DisasterEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1165368944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165368943}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 471810792}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1165368945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165368943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ad75a21a16b734baadb9a964518435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventManager: {fileID: 2015991825}
+  MousePosition: {fileID: 199668790}
+  userScriptManager: {fileID: 680387492}
+  mainTextController: {fileID: 643879619}
+  notClickObject: {fileID: 1121034712}
+  readText:
+  - {fileID: 4900000, guid: 7a90bafc46586e54580917bf5d5ac322, type: 3}
+  lastLine: 5
 --- !u!1 &1167711901
 GameObject:
   m_ObjectHideFlags: 0
@@ -9507,8 +9580,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventManager: {fileID: 2015991825}
   MousePosition: {fileID: 199668790}
-  userScriptManager: {fileID: 1700838117}
+  userScriptManager: {fileID: 680387492}
   mainTextController: {fileID: 643879619}
+  notClickObject: {fileID: 1121034712}
   readText:
   - {fileID: 4900000, guid: c6fe1d0a296385349bfb292894c8f24d, type: 3}
   - {fileID: 4900000, guid: 54378c49d071bd44394350ae0a962003, type: 3}
@@ -10768,6 +10842,7 @@ Transform:
   - {fileID: 4417897}
   - {fileID: 199668793}
   - {fileID: 1065264205}
+  - {fileID: 1121034712}
   m_Father: {fileID: 471810792}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13078,8 +13153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventManager: {fileID: 2015991825}
   MousePosition: {fileID: 199668790}
-  userScriptManager: {fileID: 1700838117}
+  userScriptManager: {fileID: 680387492}
   mainTextController: {fileID: 643879619}
+  notClickObject: {fileID: 1121034712}
   readText:
   - {fileID: 4900000, guid: d84fc87612ae6794fa62b8d24449ab75, type: 3}
   lastLine: 3
@@ -13641,8 +13717,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventManager: {fileID: 2015991825}
   MousePosition: {fileID: 199668790}
-  userScriptManager: {fileID: 1700838117}
+  userScriptManager: {fileID: 680387492}
   mainTextController: {fileID: 643879619}
+  notClickObject: {fileID: 1121034712}
   readText:
   - {fileID: 4900000, guid: 8c7806f13cc3f804f9b3fafd2e34c984, type: 3}
   lastLine: 2
@@ -14172,7 +14249,7 @@ MonoBehaviour:
   _mainTextObject: {fileID: 1864163304}
   textMassage: {fileID: 1943360215}
   MessageWindow: {fileID: 182465691}
-  mousePosition: {fileID: 0}
+  mousePosition: {fileID: 1116941982}
   userScriptManager: {fileID: 1992871368}
   first: 1
 --- !u!114 &1864163304
@@ -107533,7 +107610,7 @@ MonoBehaviour:
   _mainTextObject: {fileID: 1949473040}
   textMassage: {fileID: 1420830240}
   MessageWindow: {fileID: 4665664}
-  mousePosition: {fileID: 0}
+  mousePosition: {fileID: 1762982178}
   userScriptManager: {fileID: 601356121}
   first: 1
 --- !u!224 &1949473039
@@ -108331,7 +108408,7 @@ MonoBehaviour:
   randomEventObject:
   - {fileID: 1812318222}
   - {fileID: 1737479148}
-  - {fileID: 1694101739}
+  - {fileID: 1165368943}
   - {fileID: 879070254}
   - {fileID: 1209652555}
   EventNotSelectButton:
@@ -108630,7 +108707,7 @@ MonoBehaviour:
   - {fileID: 1656725941}
   - {fileID: 1243080875}
   - {fileID: 2029724974}
-  - {fileID: 0}
+  - {fileID: 350746687}
   - {fileID: 1656725941}
   - {fileID: 1656725941}
   - {fileID: 1656725941}
@@ -108684,6 +108761,7 @@ MonoBehaviour:
   - {fileID: 2105843740}
   - {fileID: 664452604}
   - {fileID: 1162688418}
+  - {fileID: 104647364}
 --- !u!1 &2036064736
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,30 +46,39 @@ public class EventManager : MonoBehaviour
 
             if (random < 1)//1%の確立でどちらかが選択される
             {
+                //前月の更新
+                oldMonth = globalValue.monthNumber;
+
                 RandomFunction(2);
                 if (random == 0)
                 {
-                    UFOInvasion();//1%
+                    UFOInvasion();
                 }
                 else
                 {
-                    Infection();//1%
+                    Infection();
                 }
             }
             else if (random < 6)//5%の確立でどちらかが選択される
             {
-                disasterEvent();//5%
+                //前月の更新
+                oldMonth = globalValue.monthNumber;
+
+                disasterEvent();
             }
-            else if(random < 100)//10%の確立でどちらかが選択される
+            else if(random < 16)//10%の確立でどちらかが選択される
             {
+                //前月の更新
+                oldMonth = globalValue.monthNumber;
+
                 RandomFunction(10);
                 if (random < 7)
                 {
-                    HelpEvent();//10%
+                    HelpEvent();
                 }
                 else
                 {
-                    LuckyEvent();//10%
+                    LuckyEvent();
                 }
             }
             
@@ -165,7 +174,7 @@ public class EventManager : MonoBehaviour
         }
         else if (globalValue.randomEventNumber == 2)
         {
-            globalValue.gigaMoney -= 1;
+            globalValue.gigaMoney -= 5;
         }
         else if (globalValue.randomEventNumber == 3)
         {
@@ -242,6 +251,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    //戦争イベント
     public void WarEvent()
     {
         for (int i = 0;i < 5;i++)

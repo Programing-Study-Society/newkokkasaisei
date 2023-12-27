@@ -7,33 +7,43 @@ public class YesOrNoButton : MonoBehaviour
 {
     public EventManager eventManager;
     public MainTextController mainTextController;
+    public ButtonActive buttonActive;
 
     public void YesButtonClick()
     {
-        mainTextController.OnClickNextText();
-        eventManager.randomAddValue();
-        globalValue.friendshipLevel[globalValue.randomValue] += 5;
-        if (globalValue.friendshipLevel[globalValue.randomValue] > 100)
+        if (mainTextController.CanGoToTheNextLine())
         {
-            globalValue.friendshipLevel[globalValue.randomValue] = 100;
+            mainTextController.OnClickNextText();
+            buttonActive.ButtonSetActiveFalse();
+            eventManager.randomAddValue();
+            globalValue.friendshipLevel[globalValue.randomValue] += 5;
+            if (globalValue.friendshipLevel[globalValue.randomValue] > 100)
+            {
+                globalValue.friendshipLevel[globalValue.randomValue] = 100;
+            }
+            TradeMagnification();
+            
         }
-        TradeMagnification();
     }
 
     public void NoButtonClick()
     {
-        mainTextController.OnClickNextText();
-        globalValue.friendshipLevel[globalValue.randomValue] -= 10;
-        if (globalValue.friendshipLevel[globalValue.randomValue] <= 0)
-        {
-            globalValue.friendshipLevel[globalValue.randomValue] = 0;
-            globalValue.tradeSituation[globalValue.randomValue] = "í‘ˆ’†";
+        if (mainTextController.CanGoToTheNextLine()){
+            mainTextController.OnClickNextText();
+            buttonActive.ButtonSetActiveFalse();
+            globalValue.friendshipLevel[globalValue.randomValue] -= 10;
+            if (globalValue.friendshipLevel[globalValue.randomValue] <= 0)
+            {
+                globalValue.friendshipLevel[globalValue.randomValue] = 0;
+                globalValue.tradeSituation[globalValue.randomValue] = "í‘ˆ’†";
+            }
+            if (globalValue.friendshipLevel[globalValue.randomValue] < 60)
+            {
+                globalValue.tradeSituation[globalValue.randomValue] = "‚µ‚Ä‚¢‚È‚¢";
+            }
+            TradeMagnification();
+            
         }
-        if (globalValue.friendshipLevel[globalValue.randomValue] < 60)
-        {
-            globalValue.tradeSituation[globalValue.randomValue] = "‚µ‚Ä‚¢‚È‚¢";
-        }
-        TradeMagnification();
     }
 
     //–fˆÕ‚Å“¾‚ç‚ê‚é‚¨‹à‚Ì”{—¦‚ð‹‚ß‚éŠÖ”

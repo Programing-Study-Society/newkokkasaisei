@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class butoonActive : MonoBehaviour
+public class ButtonActive : MonoBehaviour
 {
     public List<GameObject> buttonList;
     int buttonListPoint = 0;
