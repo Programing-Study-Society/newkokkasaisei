@@ -5,8 +5,9 @@ using UnityEngine;
 public class camera : MonoBehaviour
 {
     public Camera cam;
-    private Vector3 startPos;
-    private Vector3 startAngle;
+    private Vector3 startPos = new Vector3(-15,7,-15);
+    private Vector3 startAngle = new Vector3(30,30,0);
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -36,5 +37,11 @@ public class camera : MonoBehaviour
         
         float moveZ = Input.GetAxis("Mouse ScrollWheel") * globalValue.sensitiveZoom;
         cam.transform.position += cam.transform.forward * moveZ;
+    }
+
+    public void CameraReset()
+    {
+        cam.transform.localPosition = startPos;
+        cam.transform.eulerAngles = startAngle;
     }
 }

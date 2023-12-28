@@ -7,7 +7,6 @@ public class gage : MonoBehaviour
 {
     Slider slider;
     float max;
-    public GameObject GameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +18,7 @@ public class gage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slider.value = globalValue.complain;
-        if (slider.value >= globalValue.complainMax)
-        {
-            GameOver.SetActive(true);
-        }
+        slider.value = globalValue.complain;   
     }
 }
 
