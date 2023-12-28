@@ -15,6 +15,7 @@ public class EventManager : MonoBehaviour
     public GameObject dayCounter;//日にちをカウントするスクリプト
     public GameObject BGMObject;
     public Button addMonthButton;//翌月にスキップできるボタン
+    public SoundVolume soundVolume;
 
     int random;//ランダムな値を保存する値
     int oldMonth;//前の月
@@ -64,12 +65,12 @@ public class EventManager : MonoBehaviour
                     Infection();
                 }
             }
-            else if (random < 6)//5%の確立でどちらかが選択される
+            else if (random < 100)//5%の確立でどちらかが選択される
             {
                 //前月の更新
                 oldMonth = globalValue.monthNumber;
                 RandomFunction(10);
-                if (random < 5)
+                if (random < 3)
                 {
                     LuckyEvent();
                 }
@@ -166,7 +167,8 @@ public class EventManager : MonoBehaviour
                 DuringEvent();
             }
             globalValue.rootEventNumber++;
-            
+            soundVolume.bgmVolume[1].Stop();
+            soundVolume.bgmVolume[0].Play();
         }
         else
         {
@@ -179,6 +181,8 @@ public class EventManager : MonoBehaviour
             {
                 randomAddValue();
             }
+            soundVolume.bgmVolume[1].Stop();
+            soundVolume.bgmVolume[0].Play();
         }
         
     }
@@ -343,6 +347,9 @@ public class EventManager : MonoBehaviour
         {
             RandomEventTextSelect(0, 0);
             StartEvent(false, 0);
+            soundVolume.bgmVolume[0].Stop();
+            soundVolume.bgmVolume[1].Play();
+            soundVolume.seVolume[7].Play();
         }
     }
 
@@ -353,6 +360,9 @@ public class EventManager : MonoBehaviour
         {
             RandomEventTextSelect(1, 0);
             StartEvent(false, 1);
+            soundVolume.bgmVolume[0].Stop();
+            soundVolume.bgmVolume[1].Play();
+            soundVolume.seVolume[6].Play();
         }
     }
 
@@ -363,6 +373,9 @@ public class EventManager : MonoBehaviour
         {
             RandomEventTextSelect(2, 3);
             StartEvent(false, 2);
+            soundVolume.bgmVolume[0].Stop();
+            soundVolume.bgmVolume[1].Play();
+            soundVolume.seVolume[6].Play();
         }
     }
 

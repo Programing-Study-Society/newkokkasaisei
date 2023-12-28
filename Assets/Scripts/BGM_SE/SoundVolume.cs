@@ -11,6 +11,7 @@ public class SoundVolume : MonoBehaviour
     void Start()
     {
         BGMVolume();
+        SEVolume();
     }
 
     // Update is called once per frame

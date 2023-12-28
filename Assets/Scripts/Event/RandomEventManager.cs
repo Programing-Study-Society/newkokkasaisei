@@ -5,12 +5,12 @@ using TextSpace;
 
 public class RandomEventManager : MonoBehaviour
 {
+    public SoundVolume soundVolume;
     public EventManager eventManager;
     public MousePosition MousePosition;
     public UserScriptManager userScriptManager;
     public MainTextController mainTextController;
     public RectTransform notClickObject;
-
     public List<TextAsset> readText;
 
     public int lastLine;//行の最後
@@ -42,6 +42,10 @@ public class RandomEventManager : MonoBehaviour
                 MousePosition.UpDataRangeObject(globalValue.canvas);
             }
         }
+        if (globalValue.randomEventNumber == 2)
+        {
+            DisasterEventSound();
+        }
         //最後の行から改行したら終了
         if (globalValue.lineNumber > lastLine - 1)
         {
@@ -49,6 +53,43 @@ public class RandomEventManager : MonoBehaviour
             EndRandomEvent();
         }
         
+    }
+
+    public void DisasterEventSound()
+    {
+        if (globalValue.randomValue == 0)
+        {
+            if (globalValue.lineNumber == 1)
+            {
+                soundVolume.seVolume[8].Play();
+            }
+            else if (globalValue.lineNumber > lastLine - 1)
+            {
+                soundVolume.seVolume[8].Stop();
+            }
+        }
+        else if (globalValue.randomValue == 1)
+        {
+            if (globalValue.lineNumber == 1)
+            {
+                soundVolume.seVolume[4].Play();
+            }
+            else if (globalValue.lineNumber > lastLine - 1)
+            {
+                soundVolume.seVolume[4].Stop();
+            }
+        }
+        else if (globalValue.randomValue == 2)
+        {
+            if (globalValue.lineNumber == 1)
+            {
+                soundVolume.seVolume[5].Play();
+            }
+            else if (globalValue.lineNumber > lastLine - 1)
+            {
+                soundVolume.seVolume[5].Stop();
+            }
+        }
     }
 
     public void EndRandomEvent()

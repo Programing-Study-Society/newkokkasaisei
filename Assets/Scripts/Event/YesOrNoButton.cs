@@ -16,7 +16,7 @@ public class YesOrNoButton : MonoBehaviour
             mainTextController.OnClickNextText();
             buttonActive.ButtonSetActiveFalse();
             eventManager.randomAddValue();
-            if (globalValue.randomEventNumber == 3)
+            if (globalValue.randomEventNumber == 4)
             {
                 globalValue.friendshipLevel[globalValue.randomValue] += 5;
                 if (globalValue.friendshipLevel[globalValue.randomValue] > 100)
@@ -41,7 +41,7 @@ public class YesOrNoButton : MonoBehaviour
         if (mainTextController.CanGoToTheNextLine()){
             mainTextController.OnClickNextText();
             buttonActive.ButtonSetActiveFalse();
-            if (globalValue.randomEventNumber == 3)
+            if (globalValue.randomEventNumber == 4)
             {
                 globalValue.friendshipLevel[globalValue.randomValue] -= 10;
                 if (globalValue.friendshipLevel[globalValue.randomValue] <= 0)

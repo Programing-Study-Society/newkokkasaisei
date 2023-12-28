@@ -68,4 +68,6 @@ public static class globalValue
     //貿易状況
     public static List<string> tradeSituation = new List<string> { "していない", "していない", "していない", "していない", "していない" };
 
+    // 建築物の種類や座標データ
+    public static ObjectData objectData = new ObjectData();
 }

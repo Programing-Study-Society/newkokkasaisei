@@ -11,12 +11,10 @@ public class TutorialManager : MonoBehaviour
     public UserScriptManager userScriptManager;
     public GameObject mousePositionManager;
     public GameObject highlightObject;
-
+    public SoundVolume soundVolume;
     //次に選択できる所
     public List<RectTransform> movingObjectList;
-    public List<GameObject> seObject;
-    public List<GameObject> bgmObject;
-
+    
     MousePosition MousePosition;
     RectTransform highlightObjectRect;
 
@@ -70,18 +68,17 @@ public class TutorialManager : MonoBehaviour
     {
         if(globalValue.lineNumber == 2)
         {
-            bgmObject[0].SetActive(false);
-            seObject[0].SetActive(true);
+            soundVolume.bgmVolume[0].Stop();
+            soundVolume.seVolume[0].Play();
         }
         else if (globalValue.lineNumber == 3)
         {
-            seObject[0].SetActive(false);
-            bgmObject[1].SetActive(true);
+            soundVolume.bgmVolume[1].Play();
         }
         else if (globalValue.lineNumber == 11)
         {
-            bgmObject[1].SetActive(false);
-            bgmObject[0].SetActive(true);
+            soundVolume.bgmVolume[1].Stop();
+            soundVolume.bgmVolume[0].Play();
         }
     }
 

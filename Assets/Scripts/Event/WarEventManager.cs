@@ -12,9 +12,8 @@ public class WarEventManager : MonoBehaviour
     public MainTextController mainTextController;
     public Text text;
     public War war;
-
     public List<TextAsset> readText;
-
+    public SoundVolume soundVolume;
     public int lastLine;//行の最後
 
     public GameObject warObject;
@@ -25,6 +24,7 @@ public class WarEventManager : MonoBehaviour
 
     bool first = true;
     bool warWinFirst = true;
+    bool SEFirst = true;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +48,12 @@ public class WarEventManager : MonoBehaviour
                 first = false;
             }
             
+        }else if (globalValue.lineNumber == 4)
+        {
+            soundVolume.bgmVolume[0].Stop();
+            soundVolume.bgmVolume[1].Play();
         }
+
         //最後の行から改行したら終了
         if (globalValue.lineNumber > lastLine - 1 && warEventNumber == 1)
         {
@@ -56,12 +61,20 @@ public class WarEventManager : MonoBehaviour
             warObject.SetActive(true);
             warEventNumber = 2;
         }
+
+        //対戦が終わったら
         if (warEventNumber == 3)
         {
             warObject.SetActive(false);
             textObject.SetActive(true);
             if (war.myCountryWin)
             {
+                if (SEFirst)
+                {
+                    soundVolume.bgmVolume[1].Stop();
+                    soundVolume.seVolume[3].PlayOneShot(soundVolume.seVolume[3].clip);
+                    SEFirst = false;
+                }
                 text.text = "Winner\n" + "お金+100M";
                 if (warWinFirst)
                 {
@@ -71,6 +84,11 @@ public class WarEventManager : MonoBehaviour
             }
             else
             {
+                if (SEFirst)
+                {
+                    soundVolume.bgmVolume[1].Stop();
+                    soundVolume.seVolume[2].PlayOneShot(soundVolume.seVolume[2].clip);
+                }
                 text.text = "Losers\n" + "お金-100M";
                 if (warWinFirst)
                 {
@@ -89,10 +107,13 @@ public class WarEventManager : MonoBehaviour
 
     public void EndWarEvent()
     {
+        soundVolume.bgmVolume[1].Stop();
+        soundVolume.bgmVolume[0].Play();
         eventManager.EndEvent(true, globalValue.rootEventNumber);
         mainTextController.first = true;
         first = true;
         warWinFirst = true;
+        SEFirst = true;
         //Debug.Log(globalValue.eventExecution);
     }
 

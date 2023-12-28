@@ -1901,7 +1901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objID: 1
   population: 15
-  cost: 5000000
+  cost: -5000000
   armamentsPower: 30
   industryPower: 100
 --- !u!1 &3243582136069059457
