@@ -50,6 +50,10 @@ public static class globalValue
     public static float sensitiveZoom = 5.0f;
 
     //下全て追加
+    //音量
+    public static float bgmVolume = 0.2f;
+    public static float seVolume = 0.2f;
+
     //外交シーン
     //国
     public static List<string> country = new List<string> { "アメリカ", "日本", "インド", "ドイツ", "コンゴ" };

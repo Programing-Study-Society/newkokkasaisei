@@ -14,6 +14,8 @@ public class TutorialManager : MonoBehaviour
 
     //次に選択できる所
     public List<RectTransform> movingObjectList;
+    public List<GameObject> seObject;
+    public List<GameObject> bgmObject;
 
     MousePosition MousePosition;
     RectTransform highlightObjectRect;
@@ -51,12 +53,35 @@ public class TutorialManager : MonoBehaviour
             TutorialLimitRange.buttonInteractable();
             TutorialRangeMovement();
             oldLine = globalValue.lineNumber;
+            if (globalValue.rootEventNumber == 0)
+            {
+                BuildingEventSound();
+            }
         }
 
         //globalValue.lineNumber行の文字すべて表示したらボタンを押せる
         if (mainTextController.CanGoToTheNextLine())
         {
             TutorialLimitRange.buttonSelect(movingObjectList[globalValue.lineNumber]);
+        }
+    }
+
+    public void BuildingEventSound()
+    {
+        if(globalValue.lineNumber == 2)
+        {
+            bgmObject[0].SetActive(false);
+            seObject[0].SetActive(true);
+        }
+        else if (globalValue.lineNumber == 3)
+        {
+            seObject[0].SetActive(false);
+            bgmObject[1].SetActive(true);
+        }
+        else if (globalValue.lineNumber == 11)
+        {
+            bgmObject[1].SetActive(false);
+            bgmObject[0].SetActive(true);
         }
     }
 

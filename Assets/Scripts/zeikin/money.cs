@@ -30,7 +30,6 @@ public class money : MonoBehaviour
             globalValue.gigaMoney  += globalValue.money / Mega;
             globalValue.money = globalValue.money % Mega;
         }
-        
         if(globalValue.gigaMoney == 0)
         {
             text.text = "Åè" + globalValue.money.ToString();

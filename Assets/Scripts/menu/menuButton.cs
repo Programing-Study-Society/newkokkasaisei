@@ -10,12 +10,16 @@ public class menuButton : MonoBehaviour
 
     public List<Text> valueText;
 
+    public SoundVolume Volume;
+
     // Start is called before the first frame update
     void Start()
     {
         slider[0].value = globalValue.sensitiveMove;
         slider[1].value = globalValue.sensitiveZoom;
         slider[2].value = globalValue.textSpeed;
+        slider[3].value = globalValue.bgmVolume;
+        slider[4].value = globalValue.seVolume;
     }
 
     public void MoveValue()
@@ -35,4 +39,21 @@ public class menuButton : MonoBehaviour
         globalValue.textSpeed = slider[2].value;
         valueText[2].text = slider[2].value.ToString();
     }
+
+    public void BGMVolume()
+    {
+        globalValue.bgmVolume = slider[3].value;
+        int volume = (int)(slider[3].value * 100);
+        valueText[3].text = volume.ToString() + "%";
+        Volume.BGMVolume();
+    }
+
+    public void SEVolume()
+    {
+        globalValue.seVolume = slider[4].value;
+        int volume = (int)(slider[4].value * 100);
+        valueText[4].text = volume.ToString() + "%";
+        Volume.SEVolume();
+    }
+
 }

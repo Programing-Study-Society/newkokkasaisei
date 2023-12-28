@@ -13,6 +13,7 @@ public class EventManager : MonoBehaviour
     public GameObject NoObject;
     public GameObject eventObject;//イベント専用オブジェクト
     public GameObject dayCounter;//日にちをカウントするスクリプト
+    public GameObject BGMObject;
     public Button addMonthButton;//翌月にスキップできるボタン
 
     int random;//ランダムな値を保存する値
@@ -134,7 +135,8 @@ public class EventManager : MonoBehaviour
             dayCounter.SetActive(false);//日数カウンター停止
             rootEventObject[eventNumber].SetActive(true);
             globalValue.rootEventNumber = eventNumber;
-            if(globalValue.rootEventNumber >= 2)
+            //BGMObject.SetActive(false);//BGM停止
+            if (globalValue.rootEventNumber >= 2)
             {
                 DuringEvent();
             }
@@ -158,6 +160,7 @@ public class EventManager : MonoBehaviour
             globalValue.eventExecution = false;
             dayCounter.SetActive(true);//日数カウンター停止
             rootEventObject[eventNumber].SetActive(false);
+            //BGMObject.SetActive(false);//BGM停止
             if (globalValue.rootEventNumber >= 2)
             {
                 DuringEvent();
