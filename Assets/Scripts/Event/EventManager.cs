@@ -55,7 +55,7 @@ public class EventManager : MonoBehaviour
                 oldMonth = globalValue.monthNumber;
 
                 RandomFunction(10);
-                if (random < 5)
+                if (random < 1)
                 {
                     UFOInvasion();
                 }
@@ -220,7 +220,7 @@ public class EventManager : MonoBehaviour
             {
                 for (int i = 0;i < 5;i++)
                 {
-                    if (globalValue.friendshipLevel[i] >= 100)
+                    if (globalValue.friendshipLevel[i] <= 100)
                     {
                         globalValue.friendshipLevel[i] += 10;
                     }
