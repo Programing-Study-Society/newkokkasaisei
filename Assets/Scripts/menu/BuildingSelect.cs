@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 public class BuildingSelect : BuildingParent
 {
     public Tilemap tilemap;
+    public InfoDisplay infoDisplay;
 
     [HideInInspector] public int buildingObjectListPoint = 0;
 
@@ -35,19 +36,24 @@ public class BuildingSelect : BuildingParent
         {
             old = buildingObjectListPoint;
             architecture.Stop();
-            architecture.Run(objects[buildingObjectListPoint]);
+            GameObject obj =objects[buildingObjectListPoint];
+            architecture.Run(obj);
+            infoDisplay.Display(obj);
         }
         
 
     }
     public override void Run()
     {
-        Debug.Log("建築セレクトRun");
-        architecture.Run(objects[old]);
+        infoDisplay.gameObject.SetActive(true);
+        GameObject obj = objects[old];
+        architecture.Run(obj);
+        infoDisplay.Display(obj);
     }
 
     public override void Stop()
     {
+        infoDisplay.gameObject.SetActive(false);
         architecture.Stop();
     }
 }

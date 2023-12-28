@@ -7,79 +7,79 @@ using UnityEngine.SceneManagement;
 
 public class Save : MonoBehaviour
 {
-    [HideInInspector] public SaveData data;     // json•ÏŠ·‚·‚éƒf[ƒ^‚ÌƒNƒ‰ƒX
-    string filePath;                            // jsonƒtƒ@ƒCƒ‹‚ÌƒpƒX
-    string fileName = "SaveData.json";              // jsonƒtƒ@ƒCƒ‹–¼
+    [HideInInspector] public SaveData data;     // jsonï¿½ÏŠï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ÌƒNï¿½ï¿½ï¿½X
+    string filePath;                            // jsonï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìƒpï¿½X
+    string fileName = "SaveData.json";              // jsonï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½
     string metaFileName = "SaveData.json.meta";
-    int countryNumber = 5;//‘‚Ì”
+    int countryNumber = 5;//ï¿½ï¿½ï¿½Ìï¿½
 
     
-    // json‚Æ‚µ‚Äƒf[ƒ^‚ğ•Û‘¶
+    // jsonï¿½Æ‚ï¿½ï¿½Äƒfï¿½[ï¿½^ï¿½ï¿½Û‘ï¿½
     void jsonSave(SaveData data)
     {
         InSaveData();
-        string json = JsonUtility.ToJson(data);                 // json‚Æ‚µ‚Ä•ÏŠ·
-        StreamWriter wr = new StreamWriter(filePath, false);    // ƒtƒ@ƒCƒ‹‘‚«‚İw’è
-        wr.Write(json);                                     // json•ÏŠ·‚µ‚½î•ñ‚ğ‘‚«‚İ
+        string json = JsonUtility.ToJson(data);                 // jsonï¿½Æ‚ï¿½ï¿½Ä•ÏŠï¿½
+        StreamWriter wr = new StreamWriter(filePath, false);    // ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İwï¿½ï¿½
+        wr.Write(json);                                     // jsonï¿½ÏŠï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         wr.Flush();
-        wr.Close();                                             // ƒtƒ@ƒCƒ‹•Â‚¶‚é
+        wr.Close();                                             // ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½
     }
 
-    // jsonƒtƒ@ƒCƒ‹“Ç‚İ‚İ
+    // jsonï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ç‚İï¿½ï¿½ï¿½
     SaveData Load(string path)
     {
-        StreamReader rd = new StreamReader(path);               // ƒtƒ@ƒCƒ‹“Ç‚İ‚İw’è
-        string json = rd.ReadToEnd();                           // ƒtƒ@ƒCƒ‹“à—e‘S‚Ä“Ç‚İ‚Ş
-        rd.Close();                                             // ƒtƒ@ƒCƒ‹•Â‚¶‚é
+        StreamReader rd = new StreamReader(path);               // ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ç‚İï¿½ï¿½İwï¿½ï¿½
+        string json = rd.ReadToEnd();                           // ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½eï¿½Sï¿½Ä“Ç‚İï¿½ï¿½ï¿½
+        rd.Close();                                             // ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½
 
-        return JsonUtility.FromJson<SaveData>(json);            // jsonƒtƒ@ƒCƒ‹‚ğŒ^‚É–ß‚µ‚Ä•Ô‚·
+        return JsonUtility.FromJson<SaveData>(json);            // jsonï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½É–ß‚ï¿½ï¿½Ä•Ô‚ï¿½
     }
 
-    //ƒXƒ^[ƒg‚ÉJsonƒtƒ@ƒCƒ‹‚É‚ ‚é’l‚ğo‚µ‚Ä‚­‚é
+    //ï¿½Xï¿½^ï¿½[ï¿½gï¿½ï¿½ï¿½ï¿½Jsonï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½oï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
     void Awake()
     {
-        // ƒpƒX–¼æ“¾
+        // ï¿½pï¿½Xï¿½ï¿½ï¿½æ“¾
         filePath = Application.dataPath + "/" + fileName;
         //Debug.Log(filePath);
-        // ƒtƒ@ƒCƒ‹‚ª‚È‚¢‚Æ‚«Aƒtƒ@ƒCƒ‹ì¬
+        // ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Æ‚ï¿½ï¿½Aï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ì¬
         if (!File.Exists(filePath))
         {
             jsonSave(data);
         }
 
-        // ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚ñ‚Å data ‚ÉŠi”[
+        // ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½Ç‚İï¿½ï¿½ï¿½ï¿½ data ï¿½ÉŠiï¿½[
         data = Load(filePath);
 
-        //Ši”[‚µ‚½’l‚ğGlobalValue‚ÉŠi”[
+        //ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ï¿½GlobalValueï¿½ÉŠiï¿½[
         InGlobalValue();
     }
 
-    //ƒZ[ƒu
+    //ï¿½Zï¿½[ï¿½u
     public void ClickSave()
     {
-        // ƒQ[ƒ€I—¹‚É•Û‘¶
+        // ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½É•Û‘ï¿½
         jsonSave(data);
     }
 
-    //ƒZ[ƒu‚ğíœ‚µ‚ÄÅ‰‚©‚çn‚ß‚é
+    //ï¿½Zï¿½[ï¿½uï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½ÄÅï¿½ï¿½ï¿½ï¿½ï¿½nï¿½ß‚ï¿½
     public void ClickReStart()
     {
         JsonFileDelete();
         endGame();
     }
 
-    //ƒQ[ƒ€I—¹
+    //ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½ï¿½
     public void endGame()
     {
 
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;//ƒQ[ƒ€ƒvƒŒƒCI—¹
+        UnityEditor.EditorApplication.isPlaying = false;//ï¿½Qï¿½[ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Cï¿½Iï¿½ï¿½
 #else
-        Application.Quit();//ƒQ[ƒ€ƒvƒŒƒCI—¹
+        Application.Quit();//ï¿½Qï¿½[ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Cï¿½Iï¿½ï¿½
 #endif
     }
 
-    //Jsonƒtƒ@ƒCƒ‹‚ğíœ
+    //Jsonï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½íœ
     void JsonFileDelete()
     {
         filePath = Application.dataPath + "/" + fileName;
@@ -95,12 +95,12 @@ public class Save : MonoBehaviour
         {
             File.Delete(filePath);
         }
-        //ƒV[ƒ“‰Šú‰»
+        //ï¿½Vï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
 
-    //public static •Ï”‚Åw’è‚µ‚½•¨‚ğSaveData‚É•Û‘¶
+    //public static ï¿½Ïï¿½ï¿½Åwï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SaveDataï¿½É•Û‘ï¿½
     public void InSaveData()
     {
         
@@ -114,6 +114,7 @@ public class Save : MonoBehaviour
         data.monthNumber = globalValue.monthNumber;
         data.dayNumber = globalValue.dayNumber;
         data.armamentsPower = globalValue.armamentsPower;
+        data.industryPower = globalValue.industryPower;
         data.diplomacyDegrees = globalValue.diplomacyDegrees;
         data.countryPower = globalValue.countryPower;
         data.textSpeed = globalValue.textSpeed;
@@ -132,7 +133,7 @@ public class Save : MonoBehaviour
         
     }
 
-    //SaveData‚Ì’l‚ğGlobalValue‚É•Û‘¶
+    //SaveDataï¿½Ì’lï¿½ï¿½GlobalValueï¿½É•Û‘ï¿½
     public void InGlobalValue()
     {
 
@@ -146,6 +147,7 @@ public class Save : MonoBehaviour
         globalValue.monthNumber = data.monthNumber;
         globalValue.dayNumber = data.dayNumber;
         globalValue.armamentsPower = data.armamentsPower;
+        globalValue.industryPower = data.industryPower;
         globalValue.diplomacyDegrees = data.diplomacyDegrees;
         globalValue.countryPower = data.countryPower;
         globalValue.textSpeed = data.textSpeed;
