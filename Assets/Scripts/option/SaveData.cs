@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+public class ObjectData
+{
+    public List<int> originalID = new List<int>();
+    public List<int> objID = new List<int>();
+    public List<Vector3> pos = new List<Vector3>();
+}
+
+[System.Serializable]
 public class SaveData
 {
     //チュートリアルデータ
@@ -48,4 +56,7 @@ public class SaveData
 
     //貿易状況
     public List<string> tradeSituation = new List<string> { "していない", "していない", "していない", "していない", "していない" };
+
+    // 建築物の種類や座標データ
+    public ObjectData objectData = new ObjectData();
 }

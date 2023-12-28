@@ -30,15 +30,19 @@ public class money : MonoBehaviour
             globalValue.gigaMoney  += globalValue.money / Mega;
             globalValue.money = globalValue.money % Mega;
         }
-        
+        if (globalValue.money < 0)
+        {
+            globalValue.gigaMoney -= 1;
+            globalValue.money = Mega + globalValue.money;
+        }
         if(globalValue.gigaMoney == 0)
         {
-            text.text = "" + globalValue.money.ToString();
+            text.text = "ï¿½ï¿½" + globalValue.money.ToString();
         }
         else
         {
             int money = globalValue.money / (Mega / 10);
-            text.text = "" + globalValue.gigaMoney.ToString() + "." + money.ToString() + "M";
+            text.text = "ï¿½ï¿½" + globalValue.gigaMoney.ToString() + "." + money.ToString() + "M";
         }
     }
 }

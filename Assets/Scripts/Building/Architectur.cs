@@ -9,6 +9,7 @@ public class Architecture : MonoBehaviour
     private GameObject block;
     private GameObject mesh;
     private MeshRenderer meshRend;
+    private BuildingInfo buildingInfo;
     float maxDistance = 100.0f; // 無限にする場合は Mathf.Infinity
     int layerMask;
     bool isActive;
@@ -24,6 +25,7 @@ public class Architecture : MonoBehaviour
     {
         this.targetPrefab = targetPrefab;
         this.originalObj = (GameObject)Instantiate(targetPrefab, targetPrefab.transform.position, targetPrefab.transform.rotation);
+        this.buildingInfo = this.originalObj.GetComponent<BuildingInfo>();
 
         FindAndSet(this.originalObj);
         this.isActive = true;
@@ -60,7 +62,7 @@ public class Architecture : MonoBehaviour
                 {
                     // ここに四角を赤に変更する処理を記述する
                     meshRend.material.color = Color.red;
-                    Debug.Log("Hit");
+                    // Debug.Log("Hit");
                 }
                 else // 建築物が障害物と衝突していない(設置可能の場合)
                 {
@@ -69,7 +71,16 @@ public class Architecture : MonoBehaviour
                     if (Input.GetMouseButtonDown(1))  // マウスの右ボタンがクリックされたら
                     {
                         // オブジェクトを設置
-                        Instantiate(targetPrefab, cellCenterWorldPos, targetPrefab.transform.rotation);
+                        GameObject gameObject = Instantiate(targetPrefab, cellCenterWorldPos, targetPrefab.transform.rotation);
+                        // 各ステータスの調整
+                        globalValue.population += buildingInfo.population; // 人口の増減
+                        globalValue.money += buildingInfo.cost; // 所持金増減(基本的にcostは負の値)
+                        globalValue.armamentsPower += buildingInfo.armamentsPower; // 軍備力の増減
+                        globalValue.industryPower += buildingInfo.industryPower; // 工業力の増減
+                        // 建築物と座標データをリストに格納
+                        globalValue.objectData.originalID.Add(gameObject.GetInstanceID());
+                        globalValue.objectData.objID.Add(buildingInfo.objID);
+                        globalValue.objectData.pos.Add(gameObject.transform.position);
                     }
                 }
             }

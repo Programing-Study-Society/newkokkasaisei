@@ -119,6 +119,7 @@ public class Save : MonoBehaviour
         data.textSpeed = globalValue.textSpeed;
         data.sensitiveMove = globalValue.sensitiveMove;
         data.sensitiveZoom = globalValue.sensitiveZoom;
+        data.objectData = globalValue.objectData;
         
         for (int i = 0; i< countryNumber;i++)
         {
@@ -150,6 +151,7 @@ public class Save : MonoBehaviour
         globalValue.textSpeed = data.textSpeed;
         globalValue.sensitiveMove = data.sensitiveMove;
         globalValue.sensitiveZoom = data.sensitiveZoom;
+        globalValue.objectData = data.objectData;
 
         for (int i = 0; i < countryNumber; i++)
         {
