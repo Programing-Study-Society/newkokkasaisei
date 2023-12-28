@@ -16,12 +16,22 @@ public class YesOrNoButton : MonoBehaviour
             mainTextController.OnClickNextText();
             buttonActive.ButtonSetActiveFalse();
             eventManager.randomAddValue();
-            globalValue.friendshipLevel[globalValue.randomValue] += 5;
-            if (globalValue.friendshipLevel[globalValue.randomValue] > 100)
+            if (globalValue.randomEventNumber == 3)
             {
-                globalValue.friendshipLevel[globalValue.randomValue] = 100;
+                globalValue.friendshipLevel[globalValue.randomValue] += 5;
+                if (globalValue.friendshipLevel[globalValue.randomValue] > 100)
+                {
+                    globalValue.friendshipLevel[globalValue.randomValue] = 100;
+                }
+                TradeMagnification();
             }
-            TradeMagnification();
+            else if (globalValue.randomEventNumber == 5)
+            {
+                if (globalValue.complain > 0)
+                {
+                    globalValue.complain -= 5;
+                }
+            }
             
         }
     }
@@ -31,18 +41,24 @@ public class YesOrNoButton : MonoBehaviour
         if (mainTextController.CanGoToTheNextLine()){
             mainTextController.OnClickNextText();
             buttonActive.ButtonSetActiveFalse();
-            globalValue.friendshipLevel[globalValue.randomValue] -= 10;
-            if (globalValue.friendshipLevel[globalValue.randomValue] <= 0)
+            if (globalValue.randomEventNumber == 3)
             {
-                globalValue.friendshipLevel[globalValue.randomValue] = 0;
-                globalValue.tradeSituation[globalValue.randomValue] = "í‘ˆ’†";
-            }
-            if (globalValue.friendshipLevel[globalValue.randomValue] < 60)
+                globalValue.friendshipLevel[globalValue.randomValue] -= 10;
+                if (globalValue.friendshipLevel[globalValue.randomValue] <= 0)
+                {
+                    globalValue.friendshipLevel[globalValue.randomValue] = 0;
+                    globalValue.tradeSituation[globalValue.randomValue] = "í‘ˆ’†";
+                }
+                if (globalValue.friendshipLevel[globalValue.randomValue] < 60)
+                {
+                    globalValue.tradeSituation[globalValue.randomValue] = "‚µ‚Ä‚¢‚È‚¢";
+                }
+                TradeMagnification();
+            }else if (globalValue.randomEventNumber == 5)
             {
-                globalValue.tradeSituation[globalValue.randomValue] = "‚µ‚Ä‚¢‚È‚¢";
+                globalValue.complain += 10;
             }
-            TradeMagnification();
-            
+
         }
     }
 

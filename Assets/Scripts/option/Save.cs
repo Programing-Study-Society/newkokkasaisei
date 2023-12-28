@@ -13,18 +13,7 @@ public class Save : MonoBehaviour
     string metaFileName = "SaveData.json.meta";
     int countryNumber = 5;//‘‚Ì”
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Awake();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     // json‚Æ‚µ‚Äƒf[ƒ^‚ğ•Û‘¶
     void jsonSave(SaveData data)
     {

@@ -65,10 +65,11 @@ public class DisplayRelationship : MonoBehaviour
     //関係値を表示する関数
     public void ClickButtonRelationshipText()
     {
-
+        float countryPower = economicPower + militaryPower;
         RelationshipText.text = "関係値" + "\n" +
             "国：" + country + "\n" +
             "友好度：" + friendshipLevel + "%" + "\n" +
+            "国力：" + countryPower + "\n" +
             "経済力：" + economicPower + "\n" +
             "軍事力：" + militaryPower + "\n" +
             "貿易品：" + tradeGoods + "\n" +

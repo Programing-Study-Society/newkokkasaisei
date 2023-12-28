@@ -27,6 +27,7 @@ public class TutorialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         TutorialLimitRange.buttonInteractable();
 
         listMaxCount = movingObjectList.Count;
@@ -40,7 +41,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (first)
         {
-            userScriptManager.ReadText();
+            mainTextController.DisplayText();
             TutorialRangeMovement();
             first = false;
         }

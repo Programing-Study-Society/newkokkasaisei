@@ -27,7 +27,12 @@ namespace TextSpace
             MousePosition = mousePosition.GetComponent<MousePosition>();
 
             _time = 0f;
-            
+
+            if (first == true)
+            {
+                userScriptManager.ReadText();
+                first = false;
+            }
         }
 
         public void OnClickNextText()

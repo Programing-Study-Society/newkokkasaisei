@@ -25,6 +25,6 @@ public class StatusDisplay : MonoBehaviour
             "経済力：" + globalValue.industryPower + "\n" +
             "軍事力：" + globalValue.armamentsPower + "\n" +
             "外交度：" + globalValue.diplomacyDegrees + "\n" +
-            "人口：" + globalValue.population + "人" + "\n";
+            "労働力：" + globalValue.population + "\n";
     }
 }

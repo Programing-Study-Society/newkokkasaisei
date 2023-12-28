@@ -14,6 +14,7 @@ namespace TextSpace
         // 文章中の文（ここでは１行ごと）を入れておくためのリスト
         public List<string> _sentences = new List<string>();
 
+
         public void ReadText()
         {
 

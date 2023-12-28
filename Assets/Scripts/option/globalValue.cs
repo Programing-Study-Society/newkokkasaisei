@@ -14,15 +14,15 @@ public static class globalValue
     public static int randomValue = 0;
 
     //人口
-    public static int population = 0;// 追加　ulong --> int
+    public static int population = 500;// 追加　ulong --> int
 
     //所持金データ
     public static int money = 0;
-    public static int gigaMoney = 0;
+    public static int gigaMoney = 30;
     public static double tradeSize = 0.0;　//追加　変数：貿易で追加するお金の倍率
 
     //国民不満ゲージデータ
-    public static float complain = 0.0f;
+    public static float complain = 50.0f;
     public static float complainMax = 100.0f;
     
     //年月日データ
@@ -54,7 +54,7 @@ public static class globalValue
     //国
     public static List<string> country = new List<string> { "アメリカ", "日本", "インド", "ドイツ", "コンゴ" };
     //友好度
-    public static List<int> friendshipLevel = new List<int> { 60, 100, 20, 20, 20 };
+    public static List<int> friendshipLevel = new List<int> { 60, 30, 30, 30, 30 };
     //経済力
     public static List<int> economicPower = new List<int> { 400, 300, 200, 100, 100 };
     //軍事力

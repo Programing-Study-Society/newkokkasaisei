@@ -24,6 +24,7 @@ public class WarEventManager : MonoBehaviour
     public int warEventNumber = 0;
 
     bool first = true;
+    bool warWinFirst = true;
 
     // Start is called before the first frame update
     void Start()
@@ -61,11 +62,21 @@ public class WarEventManager : MonoBehaviour
             textObject.SetActive(true);
             if (war.myCountryWin)
             {
-                text.text = "Winner";
+                text.text = "Winner\n" + "お金+100M";
+                if (warWinFirst)
+                {
+                    globalValue.gigaMoney += 100;
+                    warWinFirst = false;
+                }
             }
             else
             {
-                text.text = "Losers";
+                text.text = "Losers\n" + "お金-100M";
+                if (warWinFirst)
+                {
+                    globalValue.gigaMoney -= 100;
+                    warWinFirst = false;
+                }
             }
 
             //クリックしたら終了
@@ -81,6 +92,7 @@ public class WarEventManager : MonoBehaviour
         eventManager.EndEvent(true, globalValue.rootEventNumber);
         mainTextController.first = true;
         first = true;
+        warWinFirst = true;
         //Debug.Log(globalValue.eventExecution);
     }
 

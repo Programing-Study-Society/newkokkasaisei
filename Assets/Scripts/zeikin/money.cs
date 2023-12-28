@@ -10,7 +10,7 @@ public class money : MonoBehaviour
 
     public Text text;
 
-    const int Giga = 1000000000;
+    const int Mega = 1000000;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +25,10 @@ public class money : MonoBehaviour
 
     public void Abbreviation()
     {
-        if (globalValue.money >= Giga)
+        if (globalValue.money >= Mega)
         {
-            globalValue.gigaMoney  += globalValue.money / Giga;
-            globalValue.money = globalValue.money % Giga;
+            globalValue.gigaMoney  += globalValue.money / Mega;
+            globalValue.money = globalValue.money % Mega;
         }
         
         if(globalValue.gigaMoney == 0)
@@ -37,7 +37,7 @@ public class money : MonoBehaviour
         }
         else
         {
-            int money = globalValue.money / (Giga / 10);
+            int money = globalValue.money / (Mega / 10);
             text.text = "Åè" + globalValue.gigaMoney.ToString() + "." + money.ToString() + "M";
         }
     }

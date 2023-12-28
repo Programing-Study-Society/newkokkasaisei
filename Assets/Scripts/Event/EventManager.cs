@@ -20,6 +20,7 @@ public class EventManager : MonoBehaviour
 
     RandomEventManager randomEventManager;
     WarEventManager warEventManager;
+    GameOverEvent gameOverEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -36,21 +37,24 @@ public class EventManager : MonoBehaviour
         //戦争イベント
         WarEvent();
 
+        //ゲームオーバーイベント
+        GameOver();
+
         //ランダムイベント部分
         if (oldMonth != globalValue.monthNumber)
         {
             
             RandomFunction(100);
             
-            Debug.Log("ランダムイベント抽選" + random);
+            //Debug.Log("ランダムイベント抽選" + random);
 
             if (random < 1)//1%の確立でどちらかが選択される
             {
                 //前月の更新
                 oldMonth = globalValue.monthNumber;
 
-                RandomFunction(2);
-                if (random == 0)
+                RandomFunction(10);
+                if (random < 5)
                 {
                     UFOInvasion();
                 }
@@ -63,8 +67,15 @@ public class EventManager : MonoBehaviour
             {
                 //前月の更新
                 oldMonth = globalValue.monthNumber;
-
-                disasterEvent();
+                RandomFunction(10);
+                if (random < 5)
+                {
+                    LuckyEvent();
+                }
+                else
+                {
+                    disasterEvent();
+                }
             }
             else if(random < 16)//10%の確立でどちらかが選択される
             {
@@ -72,13 +83,13 @@ public class EventManager : MonoBehaviour
                 oldMonth = globalValue.monthNumber;
 
                 RandomFunction(10);
-                if (random < 7)
+                if (random < 5)
                 {
                     HelpEvent();
                 }
                 else
                 {
-                    LuckyEvent();
+                    MyCountryEvent();
                 }
             }
             
@@ -123,6 +134,10 @@ public class EventManager : MonoBehaviour
             dayCounter.SetActive(false);//日数カウンター停止
             rootEventObject[eventNumber].SetActive(true);
             globalValue.rootEventNumber = eventNumber;
+            if(globalValue.rootEventNumber >= 2)
+            {
+                DuringEvent();
+            }
         }
         else//randomEventの場合
         {
@@ -131,7 +146,6 @@ public class EventManager : MonoBehaviour
             DuringEvent();
             randomEventObject[eventNumber].SetActive(true);
             eventObject.SetActive(true);
-            globalValue.randomEventNumber = eventNumber;
         }
     }
     
@@ -142,9 +156,14 @@ public class EventManager : MonoBehaviour
         {
             globalValue.lineNumber = 0;
             globalValue.eventExecution = false;
-            dayCounter.SetActive(false);//日数カウンター停止
+            dayCounter.SetActive(true);//日数カウンター停止
             rootEventObject[eventNumber].SetActive(false);
+            if (globalValue.rootEventNumber >= 2)
+            {
+                DuringEvent();
+            }
             globalValue.rootEventNumber++;
+            
         }
         else
         {
@@ -153,7 +172,7 @@ public class EventManager : MonoBehaviour
             DuringEvent();
             randomEventObject[eventNumber].SetActive(false);
             eventObject.SetActive(false);
-            if (eventNumber != 3)
+            if (eventNumber < 4)
             {
                 randomAddValue();
             }
@@ -164,31 +183,19 @@ public class EventManager : MonoBehaviour
     //ランダムイベントが終わった後の static 値変更関数
     public void randomAddValue()
     {
-        if (globalValue.randomEventNumber == 0)
+        if (globalValue.randomEventNumber == 0)//UFOイベント
         {
             globalValue.population -= 300;
         }
-        else if(globalValue.randomEventNumber == 1)
+        else if(globalValue.randomEventNumber == 1)//感染症イベント
         {
-            globalValue.gigaMoney -= 30;
+            globalValue.gigaMoney -= 50;
         }
-        else if (globalValue.randomEventNumber == 2)
+        else if (globalValue.randomEventNumber == 2)//災害イベント
         {
-            globalValue.gigaMoney -= 5;
+            globalValue.gigaMoney -= 10;
         }
-        else if (globalValue.randomEventNumber == 3)
-        {
-            if (globalValue.randomValue <= 1 || globalValue.randomValue == 4)
-            {
-                globalValue.gigaMoney -= 10;
-            }
-            else if(globalValue.randomValue == 2 || globalValue.randomValue == 3)
-            {
-                globalValue.population -= 100;
-            }
-                
-        }
-        else if (globalValue.randomEventNumber == 4)
+        else if (globalValue.randomEventNumber == 3)//ラッキーイベント
         {
             if (globalValue.randomValue == 0)
             {
@@ -202,6 +209,44 @@ public class EventManager : MonoBehaviour
             {
                 globalValue.gigaMoney += 50;
             }
+            else if (globalValue.randomValue == 3)
+            {
+                for (int i = 0;i < 5;i++)
+                {
+                    if (globalValue.friendshipLevel[i] >= 100)
+                    {
+                        globalValue.friendshipLevel[i] += 10;
+                    }
+                }
+                double magnification = 0;
+                globalValue.tradeSize = 0;
+                for (int i = 0; i < globalValue.tradeSituation.Count; i++)
+                {
+                    if (globalValue.tradeSituation[i] == "貿易中")
+                    {
+                        magnification += globalValue.friendshipLevel[i] - 50;
+                        globalValue.tradeSize++;
+                    }
+                }
+                magnification /= 10;
+                magnification *= 0.5;
+                globalValue.tradeSize += magnification;
+            }    
+        }
+        else if (globalValue.randomEventNumber == 4)//各国お助けイベント
+        {
+            if (globalValue.randomValue <= 1 || globalValue.randomValue == 4)
+            {
+                globalValue.gigaMoney -= 10;
+            }
+            else if (globalValue.randomValue == 2 || globalValue.randomValue == 3)
+            {
+                globalValue.population -= 100;
+            }
+        }
+        else if (globalValue.randomEventNumber == 5)//国民要求イベント
+        {
+            globalValue.gigaMoney -= 10;
         }
     }
 
@@ -251,23 +296,41 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    //戦争イベント
-    public void WarEvent()
+    //ゲームオーバーイベント
+    public void GameOver()
     {
-        for (int i = 0;i < 5;i++)
+        if (!globalValue.eventExecution)
         {
-            if (globalValue.tradeSituation[i] == "戦争中")
+            if (globalValue.complain >= globalValue.complainMax)
             {
-                globalValue.tradeSituation[i] = "していない";
-                globalValue.friendshipLevel[i] = 10;
-                globalValue.rootEventNumber = 2;
-                globalValue.randomValue = i;
-                warEventManager = rootEventObject[2].GetComponent<WarEventManager>();
-                warEventManager.ChangeReadText(i);
+                globalValue.rootEventNumber = 3;
+                globalValue.randomValue = 0;
+                gameOverEvent = rootEventObject[3].GetComponent<GameOverEvent>();
+                gameOverEvent.ChangeReadText(globalValue.randomValue);
                 StartEvent(true, globalValue.rootEventNumber);
             }
         }
-        
+    }
+
+    //戦争イベント
+    public void WarEvent()
+    {
+        if (!globalValue.eventExecution)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if (globalValue.tradeSituation[i] == "戦争中")
+                {
+                    globalValue.tradeSituation[i] = "していない";
+                    globalValue.friendshipLevel[i] = 10;
+                    globalValue.rootEventNumber = 2;
+                    globalValue.randomValue = i;
+                    warEventManager = rootEventObject[2].GetComponent<WarEventManager>();
+                    warEventManager.ChangeReadText(i);
+                    StartEvent(true, globalValue.rootEventNumber);
+                }
+            }
+        }
     }
 
     //UFO襲来イベント(1%の確率)
@@ -295,7 +358,7 @@ public class EventManager : MonoBehaviour
     {
         if (!globalValue.eventExecution)
         {
-            RandomEventTextSelect(2, 0);
+            RandomEventTextSelect(2, 3);
             StartEvent(false, 2);
         }
     }
@@ -305,10 +368,10 @@ public class EventManager : MonoBehaviour
     {
         if (!globalValue.eventExecution)
         {
-            RandomEventTextSelect(3, 5);
+            RandomEventTextSelect(4, 5);
             YesObject.SetActive(true);
             NoObject.SetActive(true);
-            StartEvent(false, 3);
+            StartEvent(false, 4);
         }
     }
 
@@ -317,8 +380,20 @@ public class EventManager : MonoBehaviour
     {
         if (!globalValue.eventExecution)
         {
-            RandomEventTextSelect(4, 3);
-            StartEvent(false, 4);
+            RandomEventTextSelect(3, 4);
+            StartEvent(false, 3);
+        }
+    }
+
+    //ランダム自国イベント
+    public void MyCountryEvent()
+    {
+        if (!globalValue.eventExecution)
+        {
+            RandomEventTextSelect(5, 3);
+            YesObject.SetActive(true);
+            NoObject.SetActive(true);
+            StartEvent(false, 5);
         }
     }
 }

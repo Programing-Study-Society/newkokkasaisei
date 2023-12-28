@@ -66,8 +66,7 @@ public class War : MonoBehaviour
         int warCountryPower = globalValue.economicPower[globalValue.randomValue] + globalValue.militaryPower[globalValue.randomValue];
         advantage = globalValue.countryPower - warCountryPower;
         advantage = advantage / 10;
-        advantage = advantage / 2;
-        Debug.Log(advantage);
+        //Debug.Log(advantage);
     }
 
     // ƒ‰ƒ“ƒ_ƒ€‚È’l(0 ` randomValue ‚ÌŠÔ)‚ğæ“¾‚·‚éŠÖ” ¦randomValue‚ÍŠÜ‚Ü‚È‚¢
