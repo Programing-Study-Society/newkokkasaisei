@@ -3,37 +3,48 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Threading;
+using System.Collections.Generic;
 
 [Serializable]
-public class SaveData
+public class ObjectData
 {
-    public int[] ObjID;
-    public Vector3[] vec;
+    public List<int> originalID;
+    public List<int> objID;
+    public List<Vector3> pos;
 
-    public SaveData(int size)
+    public ObjectData()
     {
-        this.ObjID = new int[size];
-        this.vec = new Vector3[size];
+        this.originalID = new List<int>();
+        this.objID = new List<int>();
+        this.pos = new List<Vector3>();
     }
 }
 
 public class SaveTest : MonoBehaviour
 {
-    public GameObject obj;
-    public GameObject obj2;
-    void Start()
+    // テスト用 削除予定
+    void Update()
     {
-        string fileName = "Data.json";
-        string filepath = Application.dataPath + "/" + fileName;
-        SaveData data = new SaveData(2);
-
-        data.vec[0] = obj.transform.position;
-        data.vec[1] = obj2.transform.position;
-        ObjectSave(data, filepath);
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            ObjectSave(globalValue.objectData, "Data.json");
+        }
     }
+    // public GameObject obj;
+    // public GameObject obj2;
+    // void Start()
+    // {
+    //     string fileName = "Data.json";
+    //     string filepath = Application.dataPath + "/" + fileName;
+    //     ObjectData data = new ObjectData();
+
+    //     data.vec.Add(obj.transform.position);
+    //     data.vec.Add(obj2.transform.position);
+    //     ObjectSave(data, filepath);
+    // }
 
     // jsonとしてデータを保存
-    void ObjectSave(SaveData data, string filepath)
+    void ObjectSave(ObjectData data, string filepath)
     {
         Debug.Log("Save");
 

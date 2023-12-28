@@ -7,6 +7,7 @@ Assets/AssetStoreTools*
 Assets/Fonts
 Logs
 UserSettings/Layouts/default-2022.dwlt
+Data.json
  
 # Visual Studio cache directory
 .vs/

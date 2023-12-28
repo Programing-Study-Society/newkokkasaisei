@@ -44,4 +44,7 @@ public static class globalValue
     //カメラ速度
     public static float sensitiveMove = 0.4f;
     public static float sensitiveZoom = 5.0f;
+
+    //建築物の種類や座標データ
+    public static ObjectData objectData = new ObjectData();
 }
