@@ -13,7 +13,6 @@ public class EventManager : MonoBehaviour
     public GameObject NoObject;
     public GameObject eventObject;//イベント専用オブジェクト
     public GameObject dayCounter;//日にちをカウントするスクリプト
-    public GameObject BGMObject;
     public Button addMonthButton;//翌月にスキップできるボタン
     public SoundVolume soundVolume;
 
@@ -65,7 +64,7 @@ public class EventManager : MonoBehaviour
                     Infection();
                 }
             }
-            else if (random < 100)//5%の確立でどちらかが選択される
+            else if (random < 6)//5%の確立でどちらかが選択される
             {
                 //前月の更新
                 oldMonth = globalValue.monthNumber;
@@ -136,7 +135,7 @@ public class EventManager : MonoBehaviour
             dayCounter.SetActive(false);//日数カウンター停止
             rootEventObject[eventNumber].SetActive(true);
             globalValue.rootEventNumber = eventNumber;
-            //BGMObject.SetActive(false);//BGM停止
+
             if (globalValue.rootEventNumber >= 2)
             {
                 DuringEvent();
@@ -161,7 +160,7 @@ public class EventManager : MonoBehaviour
             globalValue.eventExecution = false;
             dayCounter.SetActive(true);//日数カウンター停止
             rootEventObject[eventNumber].SetActive(false);
-            //BGMObject.SetActive(false);//BGM停止
+            
             if (globalValue.rootEventNumber >= 2)
             {
                 DuringEvent();
@@ -181,6 +180,7 @@ public class EventManager : MonoBehaviour
             {
                 randomAddValue();
             }
+            soundVolume.bgmVolume[2].Stop();
             soundVolume.bgmVolume[1].Stop();
             soundVolume.bgmVolume[0].Play();
         }
@@ -398,6 +398,8 @@ public class EventManager : MonoBehaviour
         {
             RandomEventTextSelect(3, 4);
             StartEvent(false, 3);
+            soundVolume.bgmVolume[0].Stop();
+            soundVolume.bgmVolume[2].Play();
         }
     }
 

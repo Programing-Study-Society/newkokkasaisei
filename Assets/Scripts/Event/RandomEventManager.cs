@@ -24,7 +24,7 @@ public class RandomEventManager : MonoBehaviour
         if (first == true)
         {
             //どこを押しても次のテキストに行けるようにする
-            Debug.Log(globalValue.randomEventNumber);
+            //Debug.Log(globalValue.randomEventNumber);
             if (globalValue.randomEventNumber < 4)
             {
                 MousePosition.UpDataRangeObject(globalValue.canvas);

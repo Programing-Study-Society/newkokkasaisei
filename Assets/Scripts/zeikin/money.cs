@@ -11,16 +11,41 @@ public class money : MonoBehaviour
     public Text text;
 
     const int Mega = 1000000;
+
+    int oldMoney;
+    int oldMegaMoney;
+
+    public SoundVolume soundVolume;
+
     // Start is called before the first frame update
     void Start()
     {
+        oldMoney = globalValue.money;
+        oldMegaMoney = globalValue.gigaMoney;
         Abbreviation();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Abbreviation(); 
+        Abbreviation();
+        addMoney();
+    }
+
+    public void addMoney()
+    {
+        if (oldMoney < globalValue.money)
+        {
+            soundVolume.seVolume[9].Play();
+        }
+        if (oldMegaMoney < globalValue.gigaMoney)
+        {
+            soundVolume.seVolume[9].Play();
+        }
+
+        oldMoney = globalValue.money;
+        oldMegaMoney = globalValue.gigaMoney;
+
     }
 
     public void Abbreviation()
