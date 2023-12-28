@@ -10,6 +10,7 @@ public class BuildingSelect : BuildingParent
     [HideInInspector] public int buildingObjectListPoint = 0;
 
     public List<GameObject> objects;
+    public List<GameObject> objectsButton;
 
     private Architecture architecture;
     private int old = 0;

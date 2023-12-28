@@ -15,23 +15,29 @@ namespace TextSpace
         float _time;
         [SerializeField] GameObject MessageWindow;
         [SerializeField] GameObject mousePosition;
-        [SerializeField] GameObject tutorial;
+
         MousePosition MousePosition;
-        TutorialManager TutorialManager;
+        [SerializeField] UserScriptManager userScriptManager;
+        
+        public bool first = true;
 
         // Start is called before the first frame update
         void Start()
         {
-            TutorialManager = tutorial.GetComponent<TutorialManager>();
             MousePosition = mousePosition.GetComponent<MousePosition>();
 
             _time = 0f;
-           
-            DisplayText();
+
+            if (first == true)
+            {
+                userScriptManager.ReadText();
+                first = false;
+            }
         }
 
         public void OnClickNextText()
         {
+            
             if (globalValue.lineNumber == GameManager.Instance.userScriptManager.bunmatu)
             {
                 MessageWindow.SetActive(true);
@@ -43,8 +49,6 @@ namespace TextSpace
                 {
                     GoToTheNextLine();
                     DisplayText();
-                    TutorialManager.movingObjectListPoint++;
-                    TutorialManager.TutorialRangeMovement();
                 }
                 else
                 {
@@ -56,6 +60,15 @@ namespace TextSpace
         // Update is called once per frame
         void Update()
         {
+            if (first == true)
+            {
+                userScriptManager.ReadText();
+                first = false;
+            }
+            if(globalValue.lineNumber == 0)
+            {
+                DisplayText();
+            }
 
             // 文章を１文字ずつ表示する
             _time += Time.deltaTime;
@@ -69,21 +82,14 @@ namespace TextSpace
                 }
             }
 
-            if(TutorialManager.movingObjectListPoint < TutorialManager.listMaxCount)
+            // 範囲指定された所をクリックされたとき、次の行へ移動
+            if (MousePosition.messageMousePosition)
             {
-                // 範囲指定された所をクリックされたとき、次の行へ移動
-                if (MousePosition.messageMousePosition)
+                if (Input.GetMouseButtonUp(0))
                 {
-                    if (Input.GetMouseButtonUp(0))
-                    {
-                        OnClickNextText();
+                    OnClickNextText();
 
-                    }
                 }
-            }
-            else
-            {
-                textMassage.SetActive(false);
             }
             
         }

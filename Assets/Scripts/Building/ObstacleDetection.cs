@@ -25,7 +25,7 @@ public class ObstacleDetection : MonoBehaviour
 
     public bool IsHit()
     {
-        Debug.Log(colliderCount);
+        //Debug.Log(colliderCount);
         return colliderCount > 0;
     }
 }

@@ -15,11 +15,6 @@ public class BuildingObjectSelect : MonoBehaviour
         BuildingObjectExistence(buildingObjectNumber);
     }
 
-    void Update()
-    {
-        BuildingObjectExistence(buildingObjectNumber);
-    }
-
     public void BuildingSelectOnClick()
     {
         buildingSelect.buildingObjectListPoint = buildingObjectNumber;
@@ -41,6 +36,27 @@ public class BuildingObjectSelect : MonoBehaviour
         {
             Button btn = this.GetComponent<Button>();
             btn.interactable = true;
+        }
+    }
+    public void DeleteModeSetActive()
+    {
+        int number = 0;
+        while (buildingSelect.objects[number])
+        {
+            Button btn = buildingSelect.objectsButton[number].GetComponent<Button>();
+            btn.interactable = false;
+            number++;
+        }
+    }
+
+    public void CreateModeSetActive()
+    {
+        int number = 0;
+        while (buildingSelect.objects[number])
+        {
+            Button btn = buildingSelect.objectsButton[number].GetComponent<Button>();
+            btn.interactable = true;
+            number++;
         }
     }
 }
