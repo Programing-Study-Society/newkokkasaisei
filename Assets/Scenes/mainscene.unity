@@ -3981,7 +3981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &376682300
 Transform:
   m_ObjectHideFlags: 0
@@ -5860,6 +5860,7 @@ MonoBehaviour:
   - {fileID: 1656725941}
   - {fileID: 1656725941}
   - {fileID: 1656725941}
+  - {fileID: 1656725941}
   listMaxCount: 0
 --- !u!222 &569067929
 CanvasRenderer:
@@ -6603,7 +6604,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1065791401}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
         m_Mode: 1
@@ -7362,7 +7363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 619390802}
-  soundVolume: {fileID: 0}
+  soundVolume: {fileID: 182168807}
 --- !u!114 &619390802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12033,7 +12034,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1065791401}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
         m_Mode: 1
@@ -14040,6 +14041,8 @@ MonoBehaviour:
   soundVolume: {fileID: 182168807}
   readText:
   - {fileID: 4900000, guid: 1f237077529f8224bb6c189fc02ae2d4, type: 3}
+  - {fileID: 4900000, guid: e21ec1cb6b0a0464aac1d686768dcf22, type: 3}
+  - {fileID: 4900000, guid: e442ec4a3de59b2478c7aafb5ea9a2a9, type: 3}
   lastLine: 6
   mainTextObject: {fileID: 1610234600}
   gameOverObject: {fileID: 919821448}

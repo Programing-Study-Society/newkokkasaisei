@@ -4297,7 +4297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &911705429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8116,6 +8116,7 @@ MonoBehaviour:
   - {fileID: 1875909865}
   - {fileID: 1875909865}
   - {fileID: 1642853910}
+  - {fileID: 1875909865}
   - {fileID: 1875909865}
   - {fileID: 1875909865}
   listMaxCount: 0

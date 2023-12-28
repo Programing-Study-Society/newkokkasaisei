@@ -316,6 +316,26 @@ public class EventManager : MonoBehaviour
                 gameOverEvent.ChangeReadText(globalValue.randomValue);
                 StartEvent(true, globalValue.rootEventNumber);
             }
+            if (globalValue.gigaMoney < 0)
+            {
+                if (globalValue.money < 0)
+                {
+                    globalValue.rootEventNumber = 3;
+                    globalValue.randomValue = 1;
+                    gameOverEvent = rootEventObject[3].GetComponent<GameOverEvent>();
+                    gameOverEvent.ChangeReadText(globalValue.randomValue);
+                    StartEvent(true, globalValue.rootEventNumber);
+                }
+
+            }
+            if (globalValue.population < 0)
+            {
+                globalValue.rootEventNumber = 3;
+                globalValue.randomValue = 2;
+                gameOverEvent = rootEventObject[3].GetComponent<GameOverEvent>();
+                gameOverEvent.ChangeReadText(globalValue.randomValue);
+                StartEvent(true, globalValue.rootEventNumber);
+            }
         }
     }
 
