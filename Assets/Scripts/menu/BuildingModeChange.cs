@@ -8,17 +8,23 @@ public class BuildingModeChange : MonoBehaviour
     int old = 0;
     [HideInInspector] public int modeSetNumber = 0;
 
-    void Start()
-    {
-        modeSet(old, old);
-    }
-
     void Update()
     {
         if(old != modeSetNumber)
         {
             modeSet(modeSetNumber, old);
             old = modeSetNumber;
+        }
+    }
+
+    // ごり押しバグ修正すみません！！
+    void OnDisable()
+    {
+        old = 0;
+        modeSetNumber = 0;
+        foreach(BuildingParent obj in buildingParents)
+        {
+            obj.Stop();
         }
     }
 

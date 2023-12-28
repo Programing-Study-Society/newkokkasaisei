@@ -15,10 +15,16 @@ public class BuildingSelect : BuildingParent
     private Architecture architecture;
     private int old = 0;
 
-    void Start()
+    void Awake()
     {
         architecture = gameObject.AddComponent<Architecture>();
         architecture.SetAll(tilemap);
+    }
+
+    // ごり押しバグ修正すみません！！
+    void OnEnable()
+    {
+        Run();
     }
 
     void Update()
@@ -36,6 +42,7 @@ public class BuildingSelect : BuildingParent
     }
     public override void Run()
     {
+        Debug.Log("建築セレクトRun");
         architecture.Run(objects[old]);
     }
 

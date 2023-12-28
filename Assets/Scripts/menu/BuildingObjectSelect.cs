@@ -15,6 +15,12 @@ public class BuildingObjectSelect : MonoBehaviour
         BuildingObjectExistence(buildingObjectNumber);
     }
 
+    // ごり押しバグ修正すみません！！
+    void OnDisable()
+    {
+        CreateModeSetActive();
+    }
+
     public void BuildingSelectOnClick()
     {
         buildingSelect.buildingObjectListPoint = buildingObjectNumber;
