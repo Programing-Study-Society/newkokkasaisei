@@ -416,6 +416,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: c6fe1d0a296385349bfb292894c8f24d, type: 3}
   - {fileID: 4900000, guid: 54378c49d071bd44394350ae0a962003, type: 3}
   - {fileID: 4900000, guid: 1b71978cfd455ca4f8f0d20b74ab71ba, type: 3}
+  - {fileID: 4900000, guid: 71d2b70120ab2c44a8376b4bcc8bb879, type: 3}
   lastLine: 3
 --- !u!1 &91117361
 GameObject:
@@ -667,6 +668,60 @@ MonoBehaviour:
   textObject: {fileID: 446662489}
   mainTextObject: {fileID: 895535963}
   warEventNumber: 0
+--- !u!1 &117218192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 117218193}
+  - component: {fileID: 117218194}
+  m_Layer: 0
+  m_Name: MyCountryEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &117218193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117218192}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 288348881}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &117218194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117218192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ad75a21a16b734baadb9a964518435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventManager: {fileID: 276707286}
+  MousePosition: {fileID: 221349901}
+  userScriptManager: {fileID: 330075825}
+  mainTextController: {fileID: 308030771}
+  notClickObject: {fileID: 1908617916}
+  readText:
+  - {fileID: 4900000, guid: 67cf4a4baf238fe4e9c405de53a05aab, type: 3}
+  - {fileID: 4900000, guid: 348eb0c115c46c844aa69baafc034390, type: 3}
+  - {fileID: 4900000, guid: 8cb51dbed2b41ed41a95b09df9d80fd8, type: 3}
+  lastLine: 2
 --- !u!1 &136923516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,8 +1149,9 @@ MonoBehaviour:
   - {fileID: 335591459}
   - {fileID: 1677441166}
   - {fileID: 1149394497}
-  - {fileID: 1658033580}
   - {fileID: 59670594}
+  - {fileID: 1658033580}
+  - {fileID: 117218192}
   EventNotSelectButton:
   - {fileID: 1642853911}
   - {fileID: 1497184495}
@@ -1221,6 +1277,7 @@ Transform:
   - {fileID: 1149394498}
   - {fileID: 1658033581}
   - {fileID: 59670595}
+  - {fileID: 117218193}
   m_Father: {fileID: 276707290}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
