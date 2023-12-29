@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class BuildingSelect : BuildingParent
 {
+    public SoundVolume soundVolume;
     public Tilemap tilemap;
     public InfoDisplay infoDisplay;
 
@@ -30,14 +31,14 @@ public class BuildingSelect : BuildingParent
 
     void Update()
     {
-        architecture.forUpdate();
+        architecture.forUpdate(soundVolume.seVolume[10]);
 
         if(buildingObjectListPoint != old)
         {
             old = buildingObjectListPoint;
             architecture.Stop();
             GameObject obj =objects[buildingObjectListPoint];
-            architecture.Run(obj);
+            architecture.Run(obj, soundVolume.seVolume[10]);
             infoDisplay.Display(obj);
         }
         
@@ -47,7 +48,7 @@ public class BuildingSelect : BuildingParent
     {
         infoDisplay.gameObject.SetActive(true);
         GameObject obj = objects[old];
-        architecture.Run(obj);
+        architecture.Run(obj, soundVolume.seVolume[10]);
         infoDisplay.Display(obj);
     }
 
