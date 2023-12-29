@@ -51,6 +51,10 @@ public class SaveData
     public float sensitiveMove = 0.4f;
     public float sensitiveZoom = 5.0f;
 
+    //音声
+    public float bgmVolume = 0.2f;
+    public float seVolume = 0.2f;
+
     //友好度
     public List<int> friendshipLevel = new List<int> { 0, 0, 0, 0, 0 };
 
@@ -59,4 +63,5 @@ public class SaveData
 
     // 建築物の種類や座標データ
     public ObjectData objectData = new ObjectData();
+    public int studyNumber = 5;
 }

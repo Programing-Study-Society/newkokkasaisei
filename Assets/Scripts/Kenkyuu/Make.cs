@@ -9,9 +9,13 @@ public class Make : MonoBehaviour
     public GameObject moji1;
     public TextMeshProUGUI moji1com;
     //ボタンコンポーネント
-    public CanvasGroup canvas1;
+    public GameObject canvas1;
+    public Kenkyuu kenkyuu;
+
+    int firstBuilding = 5;//最初の建築物の数
+
     // Start is called before the first frame update
-    
+
     void Start()
     {
         moji1 = GameObject.Find("moji1");
@@ -26,9 +30,11 @@ public class Make : MonoBehaviour
 
     public void k()
     {
-         //文字、ボタンを視認、触れられなくする
+        //文字、ボタンを視認、触れられなくする
         moji1com.text = "";
-        canvas1.interactable = false;
-        canvas1.alpha = 0;
+        moji1com.color = new Color(0, 0, 0, 0);
+        canvas1.SetActive(false);
+        kenkyuu.start = true;
+        globalValue.gigaMoney -= globalValue.buildingcos[globalValue.studyNumber - firstBuilding];
     }
 }

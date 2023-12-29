@@ -6,17 +6,25 @@ public class BuildingAddObject : MonoBehaviour
 {
     public BuildingSelect buildingSelect;
     public BuildingObjectSelect buildingObjectSelect;
-    public GameObject[] addObjects;
+    public SetBuilding setBuilding;
 
-    int addObjectsNumber = 0;
+    int firstBuilding = 5;
 
-    //最初から建築できる数
-    private int firstBuilding = 2;
+    void Start()
+    {
+        for (int number = firstBuilding; number < globalValue.studyNumber; number++)
+        {
+            buildingSelect.objects[number] = setBuilding.buildings[0];
+        }
+    }
 
     public void BuildingAddList()
     {
-        buildingSelect.objects[addObjectsNumber + firstBuilding] = addObjects[addObjectsNumber];
-        addObjectsNumber++;
+        buildingSelect.objects[globalValue.studyNumber] = setBuilding.buildings[0];
+        
+        globalValue.studyNumber++;
+
+        //ボタンのオンオフ切替
         buildingObjectSelect.CreateModeSetActive();
     }
 }

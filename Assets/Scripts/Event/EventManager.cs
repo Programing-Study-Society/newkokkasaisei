@@ -318,7 +318,7 @@ public class EventManager : MonoBehaviour
             }
             if (globalValue.gigaMoney < 0)
             {
-                if (globalValue.money < 0)
+                if (globalValue.money <= 0)
                 {
                     globalValue.rootEventNumber = 3;
                     globalValue.randomValue = 1;

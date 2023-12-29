@@ -51,8 +51,8 @@ public static class globalValue
 
     //下全て追加
     //音量
-    public static float bgmVolume = 0.2f;
-    public static float seVolume = 0.2f;
+    public static float bgmVolume = 0.5f;
+    public static float seVolume = 0.5f;
 
     //外交シーン
     //国
@@ -72,6 +72,7 @@ public static class globalValue
     public static ObjectData objectData = new ObjectData();
 
     //建物コスト
+    public static int studyNumber = 5;
     public static int[] buildingcos = new int[]{11, 60, 100, 200, 400, 1000, 5400, 28000};//10階建て~(hotel,eigakan,byouin,gakkou,)
     public static string[] buildingstr = new string[]{"ホテル", "映画館", "病院", "学校", "図書館", "公園", "劇場", "博物館"};
 }

@@ -6411,6 +6411,8 @@ MonoBehaviour:
     textSpeed: 0.05
     sensitiveMove: 0.4
     sensitiveZoom: 5
+    bgmVolume: 0.2
+    seVolume: 0.2
     friendshipLevel: 0000000000000000000000000000000000000000
     tradeSituation:
     - "\u3057\u3066\u3044\u306A\u3044"
@@ -6422,6 +6424,7 @@ MonoBehaviour:
       originalID: 
       objID: 
       pos: []
+    studyNumber: 5
 --- !u!4 &1287785568
 Transform:
   m_ObjectHideFlags: 0
@@ -6836,6 +6839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433b1c74fe603a344bd1c09825ea4e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kenkyuu: {fileID: 0}
 --- !u!1 &1398859569
 GameObject:
   m_ObjectHideFlags: 0
@@ -8215,18 +8219,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1642853914}
         m_TargetAssemblyTypeName: Return, Assembly-CSharp
         m_MethodName: clickButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1287785567}
-        m_TargetAssemblyTypeName: Save, Assembly-CSharp
-        m_MethodName: ClickSave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
