@@ -91,10 +91,19 @@ public class TutorialManager : MonoBehaviour
 
             //ハイライト移動
             highlightObjectRect.position = movingObjectList[globalValue.lineNumber].position;
-            highlightObjectRect.sizeDelta = movingObjectList[globalValue.lineNumber].sizeDelta;
-
+            
             Vector2 highlightPosition = highlightObjectRect.position;
-            highlightPosition.y += highlightObjectRect.sizeDelta.y;
+
+            if (highlightPosition.y + movingObjectList[globalValue.lineNumber].sizeDelta.y >= globalValue.canvas.sizeDelta.y)
+            {
+                highlightPosition.y -= movingObjectList[globalValue.lineNumber].sizeDelta.y * 2;
+                highlightObjectRect.rotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
+            }
+            else
+            {
+                highlightPosition.y += movingObjectList[globalValue.lineNumber].sizeDelta.y;
+                highlightObjectRect.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+            }
             highlightObjectRect.position = highlightPosition;
             
             if (movingObjectList[globalValue.lineNumber] == globalValue.canvas)
