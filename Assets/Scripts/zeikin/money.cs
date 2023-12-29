@@ -34,18 +34,20 @@ public class money : MonoBehaviour
 
     public void addMoney()
     {
-        if (oldMoney < globalValue.money)
+        if (oldMegaMoney < globalValue.gigaMoney)
         {
             soundVolume.seVolume[9].Play();
+            oldMoney = globalValue.money;
+            oldMegaMoney = globalValue.gigaMoney;
         }
         if (oldMegaMoney < globalValue.gigaMoney)
         {
             soundVolume.seVolume[9].Play();
+            oldMoney = globalValue.money;
+            oldMegaMoney = globalValue.gigaMoney;
         }
-
         oldMoney = globalValue.money;
         oldMegaMoney = globalValue.gigaMoney;
-
     }
 
     public void Abbreviation()

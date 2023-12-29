@@ -74,6 +74,9 @@ public class TutorialManager : MonoBehaviour
         else if (globalValue.lineNumber == 3)
         {
             soundVolume.bgmVolume[1].Play();
+        }else if (globalValue.lineNumber == 4)
+        {
+            soundVolume.seVolume[11].Play();
         }
         else if (globalValue.lineNumber == 11)
         {
