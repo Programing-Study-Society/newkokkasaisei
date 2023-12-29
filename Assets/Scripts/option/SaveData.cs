@@ -51,6 +51,10 @@ public class SaveData
     public float sensitiveMove = 0.4f;
     public float sensitiveZoom = 5.0f;
 
+    //‰¹º
+    public float bgmVolume = 0.2f;
+    public float seVolume = 0.2f;
+
     //—FD“x
     public List<int> friendshipLevel = new List<int> { 0, 0, 0, 0, 0 };
 
