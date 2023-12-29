@@ -70,4 +70,8 @@ public static class globalValue
 
     // 建築物の種類や座標データ
     public static ObjectData objectData = new ObjectData();
+
+    //建物コスト
+    public static int[] buildingcos = new int[]{11, 60, 100, 200, 400, 1000, 5400, 28000};//10階建て~(hotel,eigakan,byouin,gakkou,)
+    public static string[] buildingstr = new string[]{"ホテル", "映画館", "病院", "学校", "図書館", "公園", "劇場", "博物館"};
 }
