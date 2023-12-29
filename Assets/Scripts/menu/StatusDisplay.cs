@@ -20,6 +20,7 @@ public class StatusDisplay : MonoBehaviour
     //関係値を表示する関数
     public void ClickButtonRelationshipText()
     {
+        globalValue.countryPower = globalValue.industryPower + globalValue.armamentsPower;
         statusText.text = "ステータス" + "\n" +
             "国力：" + globalValue.countryPower + "\n" +
             "経済力：" + globalValue.industryPower + "\n" +

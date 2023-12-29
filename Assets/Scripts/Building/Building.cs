@@ -3,6 +3,7 @@ using UnityEngine.Tilemaps;
 
 public class Building : BuildingParent
 {
+    public SoundVolume soundVolume;
     public Tilemap tilemap;
     public string[] keyCodes;
     public GameObject[] objects;
@@ -24,7 +25,7 @@ public class Building : BuildingParent
 
     void Update()
     {
-        architecture.forUpdate();
+        architecture.forUpdate(soundVolume.seVolume[10]);
 
         if(isActive)
         {
@@ -34,7 +35,7 @@ public class Building : BuildingParent
                 {
                     old = i;
                     architecture.Stop();
-                    architecture.Run(objects[i]);
+                    architecture.Run(objects[i] , soundVolume.seVolume[10]);
                 }
             }
         }
@@ -43,7 +44,7 @@ public class Building : BuildingParent
     public override void Run()
     {
         isActive = true;
-        architecture.Run(objects[old]);
+        architecture.Run(objects[old], soundVolume.seVolume[10]);
     }
 
     public override void Stop()

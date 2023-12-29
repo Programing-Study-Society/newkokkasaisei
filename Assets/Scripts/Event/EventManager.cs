@@ -14,6 +14,7 @@ public class EventManager : MonoBehaviour
     public GameObject eventObject;//イベント専用オブジェクト
     public GameObject dayCounter;//日にちをカウントするスクリプト
     public Button addMonthButton;//翌月にスキップできるボタン
+    public SoundVolume soundVolume;
 
     int random;//ランダムな値を保存する値
     int oldMonth;//前の月
@@ -54,7 +55,7 @@ public class EventManager : MonoBehaviour
                 oldMonth = globalValue.monthNumber;
 
                 RandomFunction(10);
-                if (random < 5)
+                if (random < 1)
                 {
                     UFOInvasion();
                 }
@@ -68,7 +69,7 @@ public class EventManager : MonoBehaviour
                 //前月の更新
                 oldMonth = globalValue.monthNumber;
                 RandomFunction(10);
-                if (random < 5)
+                if (random < 3)
                 {
                     LuckyEvent();
                 }
@@ -134,7 +135,8 @@ public class EventManager : MonoBehaviour
             dayCounter.SetActive(false);//日数カウンター停止
             rootEventObject[eventNumber].SetActive(true);
             globalValue.rootEventNumber = eventNumber;
-            if(globalValue.rootEventNumber >= 2)
+
+            if (globalValue.rootEventNumber >= 2)
             {
                 DuringEvent();
             }
@@ -158,12 +160,14 @@ public class EventManager : MonoBehaviour
             globalValue.eventExecution = false;
             dayCounter.SetActive(true);//日数カウンター停止
             rootEventObject[eventNumber].SetActive(false);
+            
             if (globalValue.rootEventNumber >= 2)
             {
                 DuringEvent();
             }
             globalValue.rootEventNumber++;
-            
+            soundVolume.bgmVolume[1].Stop();
+            soundVolume.bgmVolume[0].Play();
         }
         else
         {
@@ -176,6 +180,9 @@ public class EventManager : MonoBehaviour
             {
                 randomAddValue();
             }
+            soundVolume.bgmVolume[2].Stop();
+            soundVolume.bgmVolume[1].Stop();
+            soundVolume.bgmVolume[0].Play();
         }
         
     }
@@ -213,7 +220,7 @@ public class EventManager : MonoBehaviour
             {
                 for (int i = 0;i < 5;i++)
                 {
-                    if (globalValue.friendshipLevel[i] >= 100)
+                    if (globalValue.friendshipLevel[i] <= 100)
                     {
                         globalValue.friendshipLevel[i] += 10;
                     }
@@ -309,6 +316,26 @@ public class EventManager : MonoBehaviour
                 gameOverEvent.ChangeReadText(globalValue.randomValue);
                 StartEvent(true, globalValue.rootEventNumber);
             }
+            if (globalValue.gigaMoney < 0)
+            {
+                if (globalValue.money < 0)
+                {
+                    globalValue.rootEventNumber = 3;
+                    globalValue.randomValue = 1;
+                    gameOverEvent = rootEventObject[3].GetComponent<GameOverEvent>();
+                    gameOverEvent.ChangeReadText(globalValue.randomValue);
+                    StartEvent(true, globalValue.rootEventNumber);
+                }
+
+            }
+            if (globalValue.population < 0)
+            {
+                globalValue.rootEventNumber = 3;
+                globalValue.randomValue = 2;
+                gameOverEvent = rootEventObject[3].GetComponent<GameOverEvent>();
+                gameOverEvent.ChangeReadText(globalValue.randomValue);
+                StartEvent(true, globalValue.rootEventNumber);
+            }
         }
     }
 
@@ -340,6 +367,9 @@ public class EventManager : MonoBehaviour
         {
             RandomEventTextSelect(0, 0);
             StartEvent(false, 0);
+            soundVolume.bgmVolume[0].Stop();
+            soundVolume.bgmVolume[1].Play();
+            soundVolume.seVolume[7].Play();
         }
     }
 
@@ -350,6 +380,9 @@ public class EventManager : MonoBehaviour
         {
             RandomEventTextSelect(1, 0);
             StartEvent(false, 1);
+            soundVolume.bgmVolume[0].Stop();
+            soundVolume.bgmVolume[1].Play();
+            soundVolume.seVolume[6].Play();
         }
     }
 
@@ -360,6 +393,9 @@ public class EventManager : MonoBehaviour
         {
             RandomEventTextSelect(2, 3);
             StartEvent(false, 2);
+            soundVolume.bgmVolume[0].Stop();
+            soundVolume.bgmVolume[1].Play();
+            soundVolume.seVolume[6].Play();
         }
     }
 
@@ -382,6 +418,8 @@ public class EventManager : MonoBehaviour
         {
             RandomEventTextSelect(3, 4);
             StartEvent(false, 3);
+            soundVolume.bgmVolume[0].Stop();
+            soundVolume.bgmVolume[2].Play();
         }
     }
 

@@ -107,14 +107,17 @@ public class AppDataRelationship : MonoBehaviour
                 {
 
                 }
-
-                //更新した値をオブジェクトに保存
-                RelationshipApp();
-
-                //表示オブジェクトを更新
-                ClickButtonRelationshipDisplay();
+            }
+            else
+            {
+                tradeSituation = "できません";
             }
 
+            //更新した値をオブジェクトに保存
+            RelationshipApp();
+
+            //表示オブジェクトを更新
+            ClickButtonRelationshipDisplay();
 
         }
     }
