@@ -16,9 +16,9 @@ public class YesOrNoButton : MonoBehaviour
             mainTextController.OnClickNextText();
             buttonActive.ButtonSetActiveFalse();
             eventManager.randomAddValue();
-            if (globalValue.randomEventNumber == 3)
+            if (globalValue.randomEventNumber == 4)
             {
-                globalValue.friendshipLevel[globalValue.randomValue] += 5;
+                globalValue.friendshipLevel[globalValue.randomValue] += 10;
                 if (globalValue.friendshipLevel[globalValue.randomValue] > 100)
                 {
                     globalValue.friendshipLevel[globalValue.randomValue] = 100;
@@ -41,17 +41,17 @@ public class YesOrNoButton : MonoBehaviour
         if (mainTextController.CanGoToTheNextLine()){
             mainTextController.OnClickNextText();
             buttonActive.ButtonSetActiveFalse();
-            if (globalValue.randomEventNumber == 3)
+            if (globalValue.randomEventNumber == 4)
             {
-                globalValue.friendshipLevel[globalValue.randomValue] -= 10;
+                globalValue.friendshipLevel[globalValue.randomValue] -= 5;
                 if (globalValue.friendshipLevel[globalValue.randomValue] <= 0)
                 {
                     globalValue.friendshipLevel[globalValue.randomValue] = 0;
                     globalValue.tradeSituation[globalValue.randomValue] = "í‘ˆ’†";
                 }
-                if (globalValue.friendshipLevel[globalValue.randomValue] < 60)
+                if (globalValue.friendshipLevel[globalValue.randomValue] < 50)
                 {
-                    globalValue.tradeSituation[globalValue.randomValue] = "‚µ‚Ä‚¢‚È‚¢";
+                    globalValue.tradeSituation[globalValue.randomValue] = "‚Å‚«‚Ü‚¹‚ñ";
                 }
                 TradeMagnification();
             }else if (globalValue.randomEventNumber == 5)

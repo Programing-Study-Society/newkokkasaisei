@@ -21,7 +21,7 @@ public class Architecture : MonoBehaviour
         this.tilemap = tilemap;
     }
 
-    public void Run(GameObject targetPrefab)
+    public void Run(GameObject targetPrefab , AudioSource audioSource)
     {
         this.targetPrefab = targetPrefab;
         this.originalObj = (GameObject)Instantiate(targetPrefab, targetPrefab.transform.position, targetPrefab.transform.rotation);
@@ -29,7 +29,7 @@ public class Architecture : MonoBehaviour
 
         FindAndSet(this.originalObj);
         this.isActive = true;
-        forUpdate(); // マウスの位置にオブジェクトを移動
+        forUpdate(audioSource); // マウスの位置にオブジェクトを移動
     }
 
     public void Stop()
@@ -38,7 +38,7 @@ public class Architecture : MonoBehaviour
         Destroy(this.originalObj);
     }
 
-    public void forUpdate()
+    public void forUpdate(AudioSource audioSource)
     {
         if(isActive)
         {
@@ -70,6 +70,8 @@ public class Architecture : MonoBehaviour
                     meshRend.material.color = Color.blue;
                     if (Input.GetMouseButtonDown(1))  // マウスの右ボタンがクリックされたら
                     {
+                        //建築音を鳴らす
+                        audioSource.Play();
                         // オブジェクトを設置
                         GameObject gameObject = Instantiate(targetPrefab, cellCenterWorldPos, targetPrefab.transform.rotation);
                         // 各ステータスの調整
@@ -113,9 +115,13 @@ public class Architecture : MonoBehaviour
         foreach (Transform childTransform in childTransforms)
         {
             if (childTransform.gameObject.layer == LayerMask.NameToLayer("Block"))
+            {
                 this.block = childTransform.gameObject;
+            }
             else if (childTransform.gameObject.layer == LayerMask.NameToLayer("Mesh"))
+            {
                 this.mesh = childTransform.gameObject;
+            }
         }
         this.meshRend = this.mesh.GetComponent<MeshRenderer>();
         this.meshRend.enabled = true;

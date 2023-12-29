@@ -11,10 +11,10 @@ public class TutorialManager : MonoBehaviour
     public UserScriptManager userScriptManager;
     public GameObject mousePositionManager;
     public GameObject highlightObject;
-
+    public SoundVolume soundVolume;
     //次に選択できる所
     public List<RectTransform> movingObjectList;
-
+    
     MousePosition MousePosition;
     RectTransform highlightObjectRect;
 
@@ -51,12 +51,34 @@ public class TutorialManager : MonoBehaviour
             TutorialLimitRange.buttonInteractable();
             TutorialRangeMovement();
             oldLine = globalValue.lineNumber;
+            if (globalValue.rootEventNumber == 0)
+            {
+                BuildingEventSound();
+            }
         }
 
         //globalValue.lineNumber行の文字すべて表示したらボタンを押せる
         if (mainTextController.CanGoToTheNextLine())
         {
             TutorialLimitRange.buttonSelect(movingObjectList[globalValue.lineNumber]);
+        }
+    }
+
+    public void BuildingEventSound()
+    {
+        if(globalValue.lineNumber == 2)
+        {
+            soundVolume.bgmVolume[0].Stop();
+            soundVolume.seVolume[0].Play();
+        }
+        else if (globalValue.lineNumber == 3)
+        {
+            soundVolume.bgmVolume[1].Play();
+        }
+        else if (globalValue.lineNumber == 11)
+        {
+            soundVolume.bgmVolume[1].Stop();
+            soundVolume.bgmVolume[0].Play();
         }
     }
 
@@ -69,10 +91,19 @@ public class TutorialManager : MonoBehaviour
 
             //ハイライト移動
             highlightObjectRect.position = movingObjectList[globalValue.lineNumber].position;
-            highlightObjectRect.sizeDelta = movingObjectList[globalValue.lineNumber].sizeDelta;
-
+            
             Vector2 highlightPosition = highlightObjectRect.position;
-            highlightPosition.y += highlightObjectRect.sizeDelta.y;
+
+            if (highlightPosition.y + movingObjectList[globalValue.lineNumber].sizeDelta.y >= globalValue.canvas.sizeDelta.y)
+            {
+                highlightPosition.y -= movingObjectList[globalValue.lineNumber].sizeDelta.y * 2;
+                highlightObjectRect.rotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
+            }
+            else
+            {
+                highlightPosition.y += movingObjectList[globalValue.lineNumber].sizeDelta.y;
+                highlightObjectRect.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+            }
             highlightObjectRect.position = highlightPosition;
             
             if (movingObjectList[globalValue.lineNumber] == globalValue.canvas)

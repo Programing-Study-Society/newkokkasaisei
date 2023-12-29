@@ -63,6 +63,7 @@ public class War : MonoBehaviour
     //í‘ˆ‚Å‚Ì—L—˜•s—˜‚ğ‹‚ß‚éŠÖ”
     public void AdvantageFunction()
     {
+        globalValue.countryPower = globalValue.industryPower + globalValue.armamentsPower;
         int warCountryPower = globalValue.economicPower[globalValue.randomValue] + globalValue.militaryPower[globalValue.randomValue];
         advantage = globalValue.countryPower - warCountryPower;
         advantage = advantage / 10;
