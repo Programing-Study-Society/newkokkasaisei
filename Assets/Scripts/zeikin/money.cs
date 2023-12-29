@@ -46,7 +46,8 @@ public class money : MonoBehaviour
             oldMoney = globalValue.money;
             oldMegaMoney = globalValue.gigaMoney;
         }
-
+        oldMoney = globalValue.money;
+        oldMegaMoney = globalValue.gigaMoney;
     }
 
     public void Abbreviation()

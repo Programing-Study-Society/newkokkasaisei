@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dontmake : MonoBehaviour
+public class StartRoad : MonoBehaviour
 {
+    public Save save;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        save.StartRoad();
     }
 }

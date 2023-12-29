@@ -15,9 +15,12 @@ public class Kenkyuu : MonoBehaviour
      public Animator anim; 
      public static TextMeshProUGUI moji;
      //ボタン2つ(canvas1)
-     public CanvasGroup button;
-    
-    int x = 12;
+     public GameObject button;
+
+    int firstBuilding = 5;//最初の建築物の数
+
+    public bool start = true;
+
     void Start()
     {
         //文字
@@ -27,9 +30,8 @@ public class Kenkyuu : MonoBehaviour
          //お金が最低必要コストに達しない時は文字を表示しない
         moji.color = new Color(0,0,0,0);
         //buttonは最初透明で触れないようにしたい
-       // button.interactable = false;
-         Ani();
-        
+        // button.interactable = false;
+        Ani();
     }
     void Update()
     {
@@ -37,14 +39,25 @@ public class Kenkyuu : MonoBehaviour
 
     public void Ani()
     {
-        for(int i = globalValue.buildingcos.Length -1; i >= 0; i--)
+        if (start)
         {
-            //  お金が墓の必要コストに達したら
-            if (x >= globalValue.buildingcos[i])
+            if (globalValue.studyNumber - firstBuilding < globalValue.buildingcos.Length)
             {
-                anim.SetBool("mojitoumei",true);
-                UnityEngine.Debug.Log(2);
-                return;
+                //  お金が墓の必要コストに達したら
+                if (globalValue.gigaMoney >= globalValue.buildingcos[globalValue.studyNumber - firstBuilding])
+                {
+                    start = false;
+                    moji.text = "新しい建築物が" +  "\n" +
+                        globalValue.buildingcos[globalValue.studyNumber - firstBuilding] + "Mで研究可能です";
+
+                    anim.Play("moji1", 0, 0);
+                    UnityEngine.Debug.Log(2);
+                }
+                else
+                {
+                    moji.text = "次の建築物は" + "\n" +
+                        globalValue.buildingcos[globalValue.studyNumber - firstBuilding] + "Mで研究可能になりなす";
+                }
             }
         }
     }
@@ -52,14 +65,13 @@ public class Kenkyuu : MonoBehaviour
 //animationeventで制御されている関数
     public void sakusei()
     {
-        Invoke("kakik",5);
+        Invoke("kakik",3);
     }
 
     public void kakik()
     {
-        moji.text = "新しい建物を\n作成しますか？";
+        moji.text = "新しい建築物を" +"\n" + globalValue.buildingcos[globalValue.studyNumber - firstBuilding] + "Mで作成しますか？";
         //ボタンを再度触れられるようにする
-        button.alpha = 1;
-        button.interactable = true;
+        button.SetActive(true);
     }
 }

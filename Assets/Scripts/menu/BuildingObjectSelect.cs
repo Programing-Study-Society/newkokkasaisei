@@ -13,6 +13,8 @@ public class BuildingObjectSelect : MonoBehaviour
     void Start()
     {
         BuildingObjectExistence(buildingObjectNumber);
+        CreateModeSetActive();
+
     }
 
     // ごり押しバグ修正すみません！！
@@ -57,12 +59,10 @@ public class BuildingObjectSelect : MonoBehaviour
 
     public void CreateModeSetActive()
     {
-        int number = 0;
-        while (buildingSelect.objects[number])
+        for (int number = 0; number < globalValue.studyNumber; number++)
         {
             Button btn = buildingSelect.objectsButton[number].GetComponent<Button>();
             btn.interactable = true;
-            number++;
         }
     }
 }

@@ -63,4 +63,5 @@ public class SaveData
 
     // 建築物の種類や座標データ
     public ObjectData objectData = new ObjectData();
+    public int studyNumber = 5;
 }

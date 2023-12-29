@@ -35,8 +35,13 @@ public class Save : MonoBehaviour
         return JsonUtility.FromJson<SaveData>(json);            // json�t�@�C�����^�ɖ߂��ĕԂ�
     }
 
-    //�X�^�[�g����Json�t�@�C���ɂ���l���o���Ă���
     void Awake()
+    {
+        filePath = Application.dataPath + "/" + fileName;
+    }
+
+    //�X�^�[�g����Json�t�@�C���ɂ���l���o���Ă���
+    public void StartRoad()
     {
         // �p�X���擾
         filePath = Application.dataPath + "/" + fileName;
@@ -123,6 +128,7 @@ public class Save : MonoBehaviour
         data.objectData = globalValue.objectData;
         data.bgmVolume = globalValue.bgmVolume;
         data.seVolume = globalValue.seVolume;
+        data.studyNumber = globalValue.studyNumber;
 
         for (int i = 0; i< countryNumber;i++)
         {
@@ -158,6 +164,7 @@ public class Save : MonoBehaviour
         globalValue.objectData = data.objectData;
         globalValue.bgmVolume = data.bgmVolume;
         globalValue.seVolume = data.seVolume;
+        globalValue.studyNumber = data.studyNumber;
 
         for (int i = 0; i < countryNumber; i++)
         {
