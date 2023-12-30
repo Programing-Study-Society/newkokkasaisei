@@ -335,6 +335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4570979003157765563}
+  - component: {fileID: -1149367449022316484}
   - component: {fileID: 630709256545620510}
   - component: {fileID: 3396925728286254804}
   m_Layer: 7
@@ -362,6 +363,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1149367449022316484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3757323169431324417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3810b932e6aea8c41aa3d5f7421fe7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objID: 12
+  population: 500
+  cost: -100000000
+  armamentsPower: 100
+  industryPower: 0
 --- !u!33 &630709256545620510
 MeshFilter:
   m_ObjectHideFlags: 0

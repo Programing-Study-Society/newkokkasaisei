@@ -73,6 +73,6 @@ public static class globalValue
 
     //Œš•¨ƒRƒXƒg
     public static int studyNumber = 5;
-    public static int[] buildingcos = new int[]{11, 60, 100, 200, 400, 1000, 5400, 28000};//10ŠKŒš‚Ä~(hotel,eigakan,byouin,gakkou,)
-    public static string[] buildingstr = new string[]{"ƒzƒeƒ‹", "‰f‰æŠÙ", "•a‰@", "ŠwZ", "}‘ŠÙ", "Œö‰€", "Œ€ê", "”•¨ŠÙ"};
+    public static int[] buildingcos = new int[] { 11, 30, 60, 100, 200, 400, 1000, 5400, 28000, 50000 };//10ŠKŒš‚Ä~(hotel,eigakan,byouin,gakkou,)
+    public static string[] buildingstr = new string[]{"’á–Ø", "ŠX“”", "‰Æ‚Q", "ƒzƒeƒ‹", "‰f‰æŠÙ", "ƒrƒ‹‚Q", "‰Æ‚R", "ŒR–Šî’n", "”•¨ŠÙ", "ƒuƒ‰ƒbƒNƒ^ƒ["};
 }

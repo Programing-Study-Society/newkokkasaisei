@@ -155,6 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7982690306768455825}
   - component: {fileID: 6442378511271085876}
+  - component: {fileID: 3456581478085118301}
   - component: {fileID: 9116159029997777918}
   m_Layer: 7
   m_Name: "\u30D3\u30EB2"
@@ -189,6 +190,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7314943273554088491}
   m_Mesh: {fileID: 1666909864082017290, guid: b1b509321a9da264da7fd67460f12123, type: 3}
+--- !u!114 &3456581478085118301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7314943273554088491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3810b932e6aea8c41aa3d5f7421fe7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objID: 10
+  population: 1000
+  cost: -50000000
+  armamentsPower: 15
+  industryPower: 15
 --- !u!23 &9116159029997777918
 MeshRenderer:
   m_ObjectHideFlags: 0
