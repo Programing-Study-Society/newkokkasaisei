@@ -45,7 +45,7 @@ public class Mjianim2 : MonoBehaviour
             if(textMeshProUGUI.a <= 0.0f)
             {
                 Destroy(textMeshPro);
-                Debug.Log(3);
+               
             }
             else
             {
@@ -62,7 +62,7 @@ public class Mjianim2 : MonoBehaviour
             else
             {
                 image1.a -= 1.0f * Time.deltaTime;
-                this.GetComponent<Image>().color = image1;
+                imagee1.GetComponent<Image>().color = image1;
             }
             
         }
@@ -81,7 +81,8 @@ public class Mjianim2 : MonoBehaviour
         if(imagee2.a <= 0)
         {
             Destroy(image2.gameObject);
-            Invoke("Mojianimation4",3);
+            canvasgroop.alpha = 1;
+            canvasgroop.interactable = true;
         }
         else
         {
@@ -90,9 +91,5 @@ public class Mjianim2 : MonoBehaviour
         }
     }
 
-    public void Mojianimation4()
-    {
-        canvasgroop.alpha = 1;
-        canvasgroop.interactable = true;
-    }
+   
 }
