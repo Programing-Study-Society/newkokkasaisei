@@ -13,7 +13,7 @@ public class Architecture : MonoBehaviour
     float maxDistance = 100.0f; // 無限にする場合は Mathf.Infinity
     int layerMask;
     bool isActive;
-
+    private RotateObject rotateObject;
     public void SetAll(Tilemap tilemap)
     {
         Debug.Log("初期化");
@@ -21,13 +21,13 @@ public class Architecture : MonoBehaviour
         this.tilemap = tilemap;
     }
 
-    public void Run(GameObject targetPrefab , AudioSource audioSource)
+    public void Run(GameObject targetPrefab, AudioSource audioSource, RotateObject rotateObject)
     {
         this.targetPrefab = targetPrefab;
         this.originalObj = (GameObject)Instantiate(targetPrefab, targetPrefab.transform.position, targetPrefab.transform.rotation);
         this.buildingInfo = this.originalObj.GetComponent<BuildingInfo>();
-
         FindAndSet(this.originalObj);
+        rotateObject.targetPrefab = this.originalObj;
         this.isActive = true;
         forUpdate(audioSource); // マウスの位置にオブジェクトを移動
     }
@@ -40,7 +40,7 @@ public class Architecture : MonoBehaviour
 
     public void forUpdate(AudioSource audioSource)
     {
-        if(isActive)
+        if (isActive)
         {
             // マウスの位置を取得
             Vector3 mousePos = Input.mousePosition;
@@ -58,7 +58,7 @@ public class Architecture : MonoBehaviour
                 originalObj.transform.position = cellCenterWorldPos; // マウスの位置にオブジェクトを設置
 
                 // 建築物が他の障害物と衝突しているか否かの処理
-                if(block.GetComponent<ObstacleDetection>().IsHit())
+                if (block.GetComponent<ObstacleDetection>().IsHit())
                 {
                     // ここに四角を赤に変更する処理を記述する
                     meshRend.material.color = Color.red;
@@ -127,5 +127,4 @@ public class Architecture : MonoBehaviour
         this.meshRend.enabled = true;
         this.block.AddComponent<ObstacleDetection>();
     }
-
 }

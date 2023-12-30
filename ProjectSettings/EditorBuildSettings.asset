@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Gaikou.unity
     guid: 29f6d4d5455b4bb458d86168e50daedc
   - enabled: 1
-    path: Assets/Scenes/title(provisional).unity
-    guid: bb9bdc70c281cf74ab8fa07d150a4705
+    path: Assets/Scenes/Scene1.unity
+    guid: 43d165ba35ec5d2439bfbd59cdc19928
   m_configObjects: {}

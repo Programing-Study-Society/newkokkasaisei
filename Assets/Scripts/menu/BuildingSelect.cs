@@ -8,6 +8,7 @@ public class BuildingSelect : BuildingParent
     public SoundVolume soundVolume;
     public Tilemap tilemap;
     public InfoDisplay infoDisplay;
+    public RotateObject rotateObject;
 
     [HideInInspector] public int buildingObjectListPoint = 0;
 
@@ -33,22 +34,22 @@ public class BuildingSelect : BuildingParent
     {
         architecture.forUpdate(soundVolume.seVolume[10]);
 
-        if(buildingObjectListPoint != old)
+        if (buildingObjectListPoint != old)
         {
             old = buildingObjectListPoint;
             architecture.Stop();
-            GameObject obj =objects[buildingObjectListPoint];
-            architecture.Run(obj, soundVolume.seVolume[10]);
+            GameObject obj = objects[buildingObjectListPoint];
+            architecture.Run(obj, soundVolume.seVolume[10], rotateObject);
             infoDisplay.Display(obj);
         }
-        
+
 
     }
     public override void Run()
     {
         infoDisplay.gameObject.SetActive(true);
         GameObject obj = objects[old];
-        architecture.Run(obj, soundVolume.seVolume[10]);
+        architecture.Run(obj, soundVolume.seVolume[10], rotateObject);
         infoDisplay.Display(obj);
     }
 
