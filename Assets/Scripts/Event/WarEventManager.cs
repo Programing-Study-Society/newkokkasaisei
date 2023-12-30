@@ -44,7 +44,7 @@ public class WarEventManager : MonoBehaviour
             
             if (first){
                 globalValue.gigaMoney = globalValue.gigaMoney - 10;
-                globalValue.population = globalValue.population - 300;
+                globalValue.population = globalValue.population - 100;
                 first = false;
             }
             

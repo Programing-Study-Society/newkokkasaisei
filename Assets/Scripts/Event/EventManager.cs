@@ -35,16 +35,15 @@ public class EventManager : MonoBehaviour
         //最初の説明部分
         TutorialFrag();
 
-        //戦争イベント
-        WarEvent();
-
         //ゲームオーバーイベント
         GameOver();
 
         //ランダムイベント部分
         if (oldMonth != globalValue.monthNumber)
         {
-            
+            //戦争イベント
+            WarEvent();
+
             RandomFunction(100);
             
             //Debug.Log("ランダムイベント抽選" + random);
@@ -248,7 +247,7 @@ public class EventManager : MonoBehaviour
             }
             else if (globalValue.randomValue == 2 || globalValue.randomValue == 3)
             {
-                globalValue.population -= 100;
+                globalValue.population -= 200;
             }
         }
         else if (globalValue.randomEventNumber == 5)//国民要求イベント
@@ -318,15 +317,11 @@ public class EventManager : MonoBehaviour
             }
             if (globalValue.gigaMoney < 0)
             {
-                if (globalValue.money <= 0)
-                {
-                    globalValue.rootEventNumber = 3;
-                    globalValue.randomValue = 1;
-                    gameOverEvent = rootEventObject[3].GetComponent<GameOverEvent>();
-                    gameOverEvent.ChangeReadText(globalValue.randomValue);
-                    StartEvent(true, globalValue.rootEventNumber);
-                }
-
+                globalValue.rootEventNumber = 3;
+                globalValue.randomValue = 1;
+                gameOverEvent = rootEventObject[3].GetComponent<GameOverEvent>();
+                gameOverEvent.ChangeReadText(globalValue.randomValue);
+                StartEvent(true, globalValue.rootEventNumber);
             }
             if (globalValue.population < 0)
             {

@@ -58,7 +58,7 @@ public static class globalValue
     //国
     public static List<string> country = new List<string> { "アメリカ", "日本", "インド", "ドイツ", "コンゴ" };
     //友好度
-    public static List<int> friendshipLevel = new List<int> { 60, 30, 30, 30, 30 };
+    public static List<int> friendshipLevel = new List<int> { 50, 30, 30, 30, 30 };
     //経済力
     public static List<int> economicPower = new List<int> { 400, 300, 200, 100, 100 };
     //軍事力
