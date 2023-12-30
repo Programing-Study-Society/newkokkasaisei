@@ -35,15 +35,17 @@ public class EventManager : MonoBehaviour
         //最初の説明部分
         TutorialFrag();
 
+        //ゲームオーバーイベント
+        GameOver();
+
+        
+
         //ランダムイベント部分
         if (oldMonth != globalValue.monthNumber)
         {
-            //ゲームオーバーイベント
-            GameOver();
-
             //戦争イベント
             WarEvent();
-            
+
             RandomFunction(100);
             
             //Debug.Log("ランダムイベント抽選" + random);

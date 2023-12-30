@@ -7,6 +7,7 @@ public class Building : BuildingParent
     public Tilemap tilemap;
     public string[] keyCodes;
     public GameObject[] objects;
+    public RotateObject rotateObject;
     private Architecture architecture;
     private int old = 0;
     private bool isActive = false;
@@ -35,7 +36,7 @@ public class Building : BuildingParent
                 {
                     old = i;
                     architecture.Stop();
-                    architecture.Run(objects[i] , soundVolume.seVolume[10]);
+                    architecture.Run(objects[i] , soundVolume.seVolume[10], rotateObject);
                 }
             }
         }
@@ -44,7 +45,7 @@ public class Building : BuildingParent
     public override void Run()
     {
         isActive = true;
-        architecture.Run(objects[old], soundVolume.seVolume[10]);
+        architecture.Run(objects[old], soundVolume.seVolume[10],rotateObject);
     }
 
     public override void Stop()

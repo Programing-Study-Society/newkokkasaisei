@@ -13,7 +13,7 @@ public class Architecture : MonoBehaviour
     float maxDistance = 100.0f; // 無限にする場合は Mathf.Infinity
     int layerMask;
     bool isActive;
-
+    private RotateObject rotateObject;
     public void SetAll(Tilemap tilemap)
     {
         Debug.Log("初期化");
@@ -21,13 +21,13 @@ public class Architecture : MonoBehaviour
         this.tilemap = tilemap;
     }
 
-    public void Run(GameObject targetPrefab , AudioSource audioSource)
+    public void Run(GameObject targetPrefab , AudioSource audioSource , RotateObject rotateObject)
     {
         this.targetPrefab = targetPrefab;
         this.originalObj = (GameObject)Instantiate(targetPrefab, targetPrefab.transform.position, targetPrefab.transform.rotation);
         this.buildingInfo = this.originalObj.GetComponent<BuildingInfo>();
-
         FindAndSet(this.originalObj);
+        rotateObject.targetPrefab = this.originalObj;
         this.isActive = true;
         forUpdate(audioSource); // マウスの位置にオブジェクトを移動
     }

@@ -28,7 +28,7 @@ public class AddMoney : MonoBehaviour
         if (globalValue.monthNumber != oldMonth)
         {
             double moneyAdd = (double)(addMegaMoney * globalValue.tradeSize);
-            moneyAdd += (double)((double)(addMegaMoney * globalValue.population) / 25000);
+            moneyAdd += (double)((double)(addMegaMoney * globalValue.population) / 2500);
             
             if (moneyAdd > 1.0)
             {

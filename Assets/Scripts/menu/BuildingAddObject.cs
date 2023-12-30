@@ -14,13 +14,13 @@ public class BuildingAddObject : MonoBehaviour
     {
         for (int number = firstBuilding; number < globalValue.studyNumber; number++)
         {
-            buildingSelect.objects[number] = setBuilding.buildings[0];
+            buildingSelect.objects[number] = setBuilding.buildings[number];
         }
     }
 
     public void BuildingAddList()
     {
-        buildingSelect.objects[globalValue.studyNumber] = setBuilding.buildings[0];
+        buildingSelect.objects[globalValue.studyNumber] = setBuilding.buildings[globalValue.studyNumber];
         
         globalValue.studyNumber++;
 
