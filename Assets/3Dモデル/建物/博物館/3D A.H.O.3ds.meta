@@ -3,7 +3,117 @@ guid: b6a2524d240d025489b6413b04d41017
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brick - Red
+    second: {fileID: 2100000, guid: 0936e193bbfcefd43a0827ec7e6d4d8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Concrete - 02
+    second: {fileID: 2100000, guid: bcae218b440e2804f8f37e2224f6e831, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Concrete - 04
+    second: {fileID: 2100000, guid: 839a2363db64eb543906124937308106, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass - Blue
+    second: {fileID: 2100000, guid: 69124384642f6e44a971ae03fdf0af6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass - Clear Fa
+    second: {fileID: 2100000, guid: 595608a7665955d45804d46f932b7ed4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grass - Green
+    second: {fileID: 2100000, guid: 040708d75b9a9b64b87165c75dc05938, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal - Bronze
+    second: {fileID: 2100000, guid: fdc4f8d7ada1fb649a0cdba94b38b3f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal - Chrome 0
+    second: {fileID: 2100000, guid: f98fad98b4f69154fb8a2152aa6ff24c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal - Zinc
+    second: {fileID: 2100000, guid: 566ace9f8e83028438cddb6dc47ed02f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paint - Golden O
+    second: {fileID: 2100000, guid: ec58f52444c629b42baae67a582de074, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paint - Light Gr
+    second: {fileID: 2100000, guid: 2b47f5bf9204bd34fa88f374fde587b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paint - Pale Blu
+    second: {fileID: 2100000, guid: 6adc38a2b6cd8df4593e7c349f846f56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paint - Sand Bei
+    second: {fileID: 2100000, guid: 7d2175cc38e5ae24588ded883d9dd8c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paint - Titanium
+    second: {fileID: 2100000, guid: 13696f550246ce240b4c61571c25e88d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Siding - Medium
+    second: {fileID: 2100000, guid: f30d7f25191074d4aa42d59076a70d63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone - Marble C
+    second: {fileID: 2100000, guid: 281ca5f6186486c428507061a9e7088a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stonework - 02
+    second: {fileID: 2100000, guid: 094b4697934ddce45bba5f08855b2a8e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stonework - 12
+    second: {fileID: 2100000, guid: d0d0b2d7b755b6d41bbfc170b671d87a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stucco - White F
+    second: {fileID: 2100000, guid: 661b8ef4c699cab458559571f113605d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Water - Pond
+    second: {fileID: 2100000, guid: 6a8d3f72672ccaa4d9af95a39107e78f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood - Mahogany_
+    second: {fileID: 2100000, guid: e77666da55f5b4a4b9c778b8e5fc985d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood - Pine Grai
+    second: {fileID: 2100000, guid: 2ba5c763f0a00ab4094af6942cd6d10e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
