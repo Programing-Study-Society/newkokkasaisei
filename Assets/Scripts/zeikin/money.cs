@@ -10,35 +10,67 @@ public class money : MonoBehaviour
 
     public Text text;
 
-    const int Giga = 1000000000;
+    const int Mega = 1000000;
+
+    int oldMoney;
+    int oldMegaMoney;
+
+    public SoundVolume soundVolume;
+
     // Start is called before the first frame update
     void Start()
     {
+        oldMoney = globalValue.money;
+        oldMegaMoney = globalValue.gigaMoney;
         Abbreviation();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Abbreviation(); 
+        Abbreviation();
+        addMoney();
+    }
+
+    public void addMoney()
+    {
+        if (oldMegaMoney < globalValue.gigaMoney)
+        {
+            soundVolume.seVolume[9].Play();
+            oldMoney = globalValue.money;
+            oldMegaMoney = globalValue.gigaMoney;
+        }
+        if (oldMegaMoney < globalValue.gigaMoney)
+        {
+            soundVolume.seVolume[9].Play();
+            oldMoney = globalValue.money;
+            oldMegaMoney = globalValue.gigaMoney;
+        }
+        oldMoney = globalValue.money;
+        oldMegaMoney = globalValue.gigaMoney;
     }
 
     public void Abbreviation()
     {
-        if (globalValue.money >= Giga)
+        if (globalValue.money >= Mega)
         {
-            globalValue.gigaMoney  += globalValue.money / Giga;
-            globalValue.money = globalValue.money % Giga;
+            globalValue.gigaMoney  += globalValue.money / Mega;
+            globalValue.money = globalValue.money % Mega;
+        }
+        else if (globalValue.money < 0)
+        {
+            globalValue.gigaMoney -= 1;
+            globalValue.money = Mega + globalValue.money;
         }
         
         if(globalValue.gigaMoney == 0)
         {
-            text.text = "" + globalValue.money.ToString();
+            text.text = "ï¿¥" + globalValue.money.ToString();
         }
         else
         {
-            int money = globalValue.money / (Giga / 10);
-            text.text = "" + globalValue.gigaMoney.ToString() + "." + money.ToString() + "M";
+            int money = globalValue.money / (Mega / 10);
+            text.text = "ï¿¥" + globalValue.gigaMoney.ToString() + "." + money.ToString() + "M";
         }
     }
 }

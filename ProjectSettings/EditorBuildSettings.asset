@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/mainscene2.unity
+    path: Assets/Scenes/mainscene3.unity
     guid: 69e29d033cf44ed4abb6a61be361473d
   - enabled: 1
     path: Assets/Scenes/Gaikou.unity

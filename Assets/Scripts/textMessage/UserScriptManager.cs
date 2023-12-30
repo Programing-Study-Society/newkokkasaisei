@@ -9,12 +9,13 @@ namespace TextSpace
     {
         public int bunmatu=0;
 
-        [SerializeField] TextAsset _textFile;
+        [SerializeField] public TextAsset _textFile;
 
         // 文章中の文（ここでは１行ごと）を入れておくためのリスト
-        List<string> _sentences = new List<string>();
+        public List<string> _sentences = new List<string>();
 
-        void Awake()
+
+        public void ReadText()
         {
 
             // テキストファイルの中身を、１行ずつリストに入れておく

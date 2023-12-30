@@ -5,41 +5,56 @@ using UnityEngine.Tilemaps;
 
 public class BuildingSelect : BuildingParent
 {
+    public SoundVolume soundVolume;
     public Tilemap tilemap;
+    public InfoDisplay infoDisplay;
 
     [HideInInspector] public int buildingObjectListPoint = 0;
 
     public List<GameObject> objects;
+    public List<GameObject> objectsButton;
 
     private Architecture architecture;
     private int old = 0;
 
-    void Start()
+    void Awake()
     {
         architecture = gameObject.AddComponent<Architecture>();
-        architecture.SetAll(tilemap, objects[0]);
+        architecture.SetAll(tilemap);
+    }
+
+    // ごり押しバグ修正すみません！！
+    void OnEnable()
+    {
+        Run();
     }
 
     void Update()
     {
-        architecture.forUpdate();
+        architecture.forUpdate(soundVolume.seVolume[10]);
 
         if(buildingObjectListPoint != old)
         {
             old = buildingObjectListPoint;
             architecture.Stop();
-            architecture.Run(objects[buildingObjectListPoint]);
+            GameObject obj =objects[buildingObjectListPoint];
+            architecture.Run(obj, soundVolume.seVolume[10]);
+            infoDisplay.Display(obj);
         }
         
 
     }
     public override void Run()
     {
-        architecture.Run(objects[old]);
+        infoDisplay.gameObject.SetActive(true);
+        GameObject obj = objects[old];
+        architecture.Run(obj, soundVolume.seVolume[10]);
+        infoDisplay.Display(obj);
     }
 
     public override void Stop()
     {
+        infoDisplay.gameObject.SetActive(false);
         architecture.Stop();
     }
 }

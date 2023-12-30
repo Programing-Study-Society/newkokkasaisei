@@ -12,7 +12,7 @@ public class ModeChange : MonoBehaviour
     {
         if(buildingParents.Length != keyCodes.Length)
             Debug.Log("警告：buildingParentsとkeyCodesの要素数が異なります。\n無効な値を読み取る可能性があります。");
-        modeSet(old, old);
+        // modeSet(old, old); 
     }
 
     void Update()
