@@ -1863,7 +1863,7 @@ GameObject:
   - component: {fileID: 2347697379145048732}
   - component: {fileID: 5961187497790170347}
   m_Layer: 7
-  m_Name: "\u5BB6"
+  m_Name: "\u5BB61"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
