@@ -17581,7 +17581,7 @@ MonoBehaviour:
   buildingObjectListPoint: 0
   objects:
   - {fileID: 6121684059413823631, guid: 44da058cc112edd4797c1f5e9a61dc87, type: 3}
-  - {fileID: 3161354312919955494, guid: 1ba63fd54a1ec9f489ed21f6210c24a7, type: 3}
+  - {fileID: 3161354312919955494, guid: d56f2ebad0eeeeb4b8bffdc74baa805c, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -114398,7 +114398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2015991821
 MonoBehaviour:
   m_ObjectHideFlags: 0
